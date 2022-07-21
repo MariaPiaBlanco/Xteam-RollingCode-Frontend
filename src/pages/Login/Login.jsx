@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import LoginComp from "../../components/loginComp/LoginComp";
+import style from "./login.module.css"
 
 function Login() {
   return (
-    <div>Login</div>
-  )
+    <section>
+      <LoginComp className={style} />
+    </section>
+  );
 }
 
-export default Login
+export default Login;
