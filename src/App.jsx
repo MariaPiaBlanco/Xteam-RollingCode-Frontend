@@ -3,7 +3,6 @@ import HomePage from "./pages/HomePage/HomePage";
 import Login from "./pages/Login/Login";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
-import "bootstrap-icons/font/bootstrap-icons.css"
 
 function App() {
   return (
