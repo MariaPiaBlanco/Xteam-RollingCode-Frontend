@@ -1,0 +1,12 @@
+:root {
+  --primary-color: #5202bf;
+  --secondary-color: #39ccdd;
+  --dark-color: #272a31;
+  --light-color: #ffffff;
+}
+
+.btnSubmit{
+  background-color: var(--primary-color) !important;
+  color: var(--light-color) !important;
+  width: 93%;
+}
