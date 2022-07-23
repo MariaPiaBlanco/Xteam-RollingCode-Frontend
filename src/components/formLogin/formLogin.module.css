@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url("../../assets/fonts/Montserrat-Regular.ttf");
+}
+:root {
+  --primary-color: #5202bf;
+  --secondary-color: #39ccdd;
+  --dark-color: #272a31;
+  --light-color: #ffffff;
+}
+
+.bgLogin{
+  background-color: var(--dark-color);
+}
+
+.border{
+  border: 1px solid;
+  border-color: var(--primary-color);
+  box-shadow: 1px 1px 6px 6px var(--primary-color);
+}
+
+.inputBorder{
+  border: 2px solid !important;
+  border-color: var(--primary-color) !important;
+}
+
+.inputBg{
+  background-color: var(--primary-color) !important;
+}
+
+.fontLogin{
+  font-family: "Montserrat";
+  color: var(--light-color);
+}
+
+.fontPass{
+  font-family: "Montserrat";
+  color: var(--secondary-color);
+}
