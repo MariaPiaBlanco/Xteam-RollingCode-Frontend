@@ -1,6 +1,6 @@
 import React from 'react'
 import Emailjs from 'emailjs-com'
-import styles from '../Contact/Contact.module.css'
+import styles from '../contact/contact.module.css'
 
 const Contact = () => {
     function enviarMail(e){
