@@ -16,6 +16,10 @@ span{
 span:hover{
   color: var(--secondary-color);
 }
+h6{
+  font-family: 'Montserrat-Regular';
+  color: var(--light-color);
+}
 .footerBgDark{
   background-color: var(--dark-color);
 }
