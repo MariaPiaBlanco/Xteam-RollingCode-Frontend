@@ -20,7 +20,7 @@ function Navbar() {
             <a className="nav-link text-light" href="/#">Destacado</a>
           </li>
           <li className="nav-item px-2">
-            <a className="nav-link text-light" href="/#">Contacto</a>
+            <a className="nav-link text-light" href="/contact">Contacto</a>
           </li>
           <li className="nav-item px-2">
             <a className="nav-link text-light" href="/#">Favoritos</a>
