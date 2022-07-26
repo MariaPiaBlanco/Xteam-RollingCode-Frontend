@@ -1,4 +1,4 @@
-import Contact from '../../components/contact/Contact.jsx';
+import Contact from '../../components/contact/Contact';
 
 import React from 'react'
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import Carousel from '../../components/Carousel/Carousel';
-import CardUserFav from '../../components/CardUserFav/CardUserFav';
-import Card from '../../components/Card/Card';
+import Carousel from '../../components/carousel/Carousel';
+import CardUserFav from '../../components/cardUserFav/CardUserFav';
+import Card from '../../components/card/Card';
 
 function HomePage() {
   return (
