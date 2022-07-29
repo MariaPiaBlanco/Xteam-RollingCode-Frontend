@@ -7,23 +7,26 @@
   --secondary-color: #39ccdd;
   --dark-color: #272a31;
   --black-color: #10171C;
+  --dark-light-color: #797e8c;
   --light-color: #ffffff;
 }
-
-body{
-  background-color: var(--black-color) !important;
+span{
+  font-family: 'Montserrat-Regular';
+  color: var(--light-color);
 }
-
-.bgLogin{
+span:hover{
+  color: var(--secondary-color);
+}
+h6{
+  font-family: 'Montserrat-Regular';
+  color: var(--light-color);
+}
+.footerBgDark{
   background-color: var(--dark-color);
 }
-
-.border{
-  border: 1px solid;
-  border-color: var(--primary-color);
-  box-shadow: 1px 1px 6px 6px var(--primary-color);
+.footerBgDarkLight{
+  background-color: var(--dark-light-color);
 }
-
 .inputBorder{
   border: 2px solid !important;
   border-color: var(--primary-color) !important;
@@ -36,12 +39,3 @@ body{
   background-color: var(--primary-color) !important;
 }
 
-.fontLogin{
-  font-family: "Montserrat-Regular";
-  color: var(--light-color);
-}
-
-.fontPass{
-  font-family: "Montserrat-Regular";
-  color: var(--secondary-color);
-}

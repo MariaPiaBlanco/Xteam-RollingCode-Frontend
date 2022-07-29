@@ -1,0 +1,10 @@
+.gameCard{
+    background-color:#141C21 !important;
+    box-shadow: 10px 10px 5px 0px rgba(6,9,12,1) !important;
+}
+.btnStar{
+ padding-top: 0 !important;
+}
+.btnStar :hover{
+ background-color: #f7ac0a44 !important;
+}
