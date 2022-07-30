@@ -5,7 +5,7 @@ import cartImg from '../../assets/cart.svg';
 import questImg from '../../assets/question.svg';
 import styles from './navbar.module.css';
 
-function Navbar() {
+const Navbar = () => {
   const {navXteam, inpSearch, btnSearch, btnCart, btnQuest} = styles;
   return (
     <nav className={`navbar navbar-expand-lg navbar-light ${navXteam}`}> 
