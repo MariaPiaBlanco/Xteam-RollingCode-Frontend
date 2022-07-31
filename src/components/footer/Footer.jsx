@@ -3,7 +3,7 @@ import Logo from "../../assets/images/xTeamLogo.jpeg";
 import styles from "./footer.module.css";
 
 const Footer = () => {
-  const { footerBgDark, footerBgDarkLight, inputBorder, inputBg } = styles;
+  const { footerBgDark, footerBgDarkLight, inputBorder, inputBg, iconInputBg } = styles;
   return (
     <section className="containter-fluid">
       <div className="row m-0">
@@ -21,8 +21,8 @@ const Footer = () => {
             <div className="col-4 d-none d-sm-block ">
               <form className="d-flex justify-content-center align-items-center h-100" role="search">
                 <div className="input-group mb-3 p-2 w-50">
-                  <input autoComplete="off" type="password" className={`form-control ${inputBorder}`} placeholder="Repetir Password" aria-label="password" aria-describedby="basic-addon1"/>
-                  <button className={`input-group-text ${inputBorder} ${inputBg}`} id="basic-addon1"><box-icon name="search" color="#ffffff" ></box-icon></button>
+                  <input autoComplete="off" type="password" className={`form-control ${inputBorder} ${inputBg}`} placeholder="Busqueda" aria-label="password" aria-describedby="basic-addon1"/>
+                  <button className={`input-group-text ${inputBorder} ${iconInputBg}`} id="basic-addon1"><box-icon name="search" color="#ffffff" ></box-icon></button>
                 </div>
               </form>
             </div>
