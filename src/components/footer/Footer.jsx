@@ -6,7 +6,7 @@ const Footer = () => {
   const { footerBgDark, footerBgDarkLight, inputBorder, inputBg } = styles;
   return (
     <section className="containter-fluid">
-      <div className="row">
+      <div className="row m-0">
         <div className={`container-fluid col-12 ${footerBgDark}`}>
           <div className="row justify-content-evenly">
             <div className="col-12 col-lg-4 text-center">

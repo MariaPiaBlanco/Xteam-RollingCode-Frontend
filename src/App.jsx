@@ -6,7 +6,7 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 
-function App() {
+const App = () => {
   return (
     <>
      <Navbar/>

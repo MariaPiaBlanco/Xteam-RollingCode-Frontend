@@ -1,22 +1,33 @@
-import React from 'react'
-import logoImg from '../../assets/Logo.jpeg';
-import starImg from '../../assets/Star.svg';
-import styles from './card.module.css';
+import React from "react";
+// import CartContext from "../../context/CartContext";
+import styles from "./card.module.css";
 
-function Card() {
-  const {gameCard, btnStar} = styles;
+const Card =({game})=>{
+  const {image, title, details, price} = game
+  const { productGame, imgCard, pCard, btnCart } = styles;
   return (
-  <div className={`card col-md-4 col-lg-2 col-sm-6 mx-1 my-2 ${gameCard}`}>
-  <img src={logoImg} className="card-img-top" alt="..."/>
-  <div className="card-body">
-    <div className='row'>
-    <h5 className="card-title text-light col-9">Card title</h5>
-    <button className={`btn border-0 col-3 ${btnStar}`}><img src={starImg} alt="favorites" /></button>
-    </div>
-    <p className='text-light'> Lorem, ipsum dolor sit amet consectetur adipisicing elit. At fuga dolorum odit veniam libero nesciunt adipisci.</p>
-  </div>
-</div>
-  )
-}
-
-export default Card
+          <div className={`card col-2 mx-2 my-3 py-2 ${productGame}`}>
+            <img
+              src={image[0]}
+              className={`card-img-top my-2 ${imgCard}`}
+              alt={title}
+            />
+            <div className="card-body">
+              <h5 className={`${pCard} text-light`}>
+                {title} - ${price}
+              </h5>
+              <p className={`card-text text-light`}>{details}</p>
+            </div>
+            {!game.inCart ? (
+            <button
+                className={`${btnCart} btn btn-primary`}
+              >
+                Agregar al carrito
+              </button>
+               ) : (
+                <button className={`${btnCart} btn btn-primary`}>En el carrito</button>
+              )}
+          </div>
+  );
+};
+export default Card;
