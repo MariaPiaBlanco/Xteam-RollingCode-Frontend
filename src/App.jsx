@@ -8,7 +8,7 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
 
-function App() {
+const App = () => {
   return (
     <>
       <BrowserRouter>

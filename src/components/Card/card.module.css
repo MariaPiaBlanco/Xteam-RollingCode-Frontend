@@ -1,10 +1,17 @@
-.gameCard{
+.productGame{
     background-color:#141C21 !important;
-    box-shadow: 10px 10px 5px 0px rgba(6,9,12,1) !important;
+    box-shadow: 10px 10px 5px 0px rgba(112,112,112,1);
 }
-.btnStar{
- padding-top: 0 !important;
+.imgCard{
+    width: 10em;
+    height: 15em;
 }
-.btnStar :hover{
- background-color: #f7ac0a44 !important;
+.btnCart{
+    background-color: #5104BD;
+    border:solid #6B00FD;
+    cursor: pointer;
+}
+.btnCart:hover{
+    background-color: #36007F;
+    border:solid #36007F;
 }
