@@ -1,7 +1,7 @@
 import React, {useEffect, useState }from 'react'
-import Carousel from '../../components/carousel/Carousel';
-import CardUserFav from '../../components/cardUserFav/CardUserFav';
-import Card from '../../components/card/Card';
+import Carousel from '../../components/Carousel/Carousel';
+import Card from '../../components/Card/Card';
+import CardUserFav from '../../components/CardUserFav/CardUserFav'
 import axios from "axios";
 import styles from './homePage.module.css';
 
@@ -10,7 +10,7 @@ function HomePage() {
 
   const [games, setGames] = useState([])
   const getData = async () =>{ 
-    await axios.get(`https://xteamrolling.herokuapp.com/games`)
+    await axios.get(`${process.env.REACT_APP_URL_BASE}/games`)
       .then((response)=>setGames(response.data))
   } 
   useEffect(() => {
@@ -20,7 +20,7 @@ function HomePage() {
   return (
     <div>
       <Carousel/>
-      <CardUserFav/>
+      <CardUserFav></CardUserFav>
       <div className='container-fluid'>
         <div className={`row justify-content-evenly m-0 ${gameCard}`}>
           {games?.map(game=><Card game={game} key={game._id}/>)}
