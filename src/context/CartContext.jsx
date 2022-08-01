@@ -9,13 +9,13 @@ const [cartItems, setCartItems] = useState([]);
 
   const getProducts = async () => {
     await axios
-      .get("http://localhost:8080/games/:id")
+      .get(`${process.env.REACT_APP_URL_BASE}/games/:id`)
       .then(({ data }) => setProducts(data.products));
   };
 
   const getProductsCart = async () => {
     return await axios
-      .get("http://localhost:8080/games/")
+      .get(`${process.env.REACT_APP_URL_BASE}/games/`)
       .then(({ data }) => setCartItems(data.productsCart))
       .catch((error) => console.error(error));
   };
@@ -28,7 +28,7 @@ const [cartItems, setCartItems] = useState([]);
   const addItemToCart = async (product) => {
     const { name, img, price } = product;
 
-    await axios.post("http://localhost:8080/games", { name, img, price });
+    await axios.post(`${process.env.REACT_APP_URL_BASE}/games`, { name, img, price });
 
     getProducts();
     getProductsCart();
@@ -37,11 +37,11 @@ const [cartItems, setCartItems] = useState([]);
   const editItemToCart = async (id, query, amount) => {
     if (query === "del" && amount === 1) {
       await axios
-        .delete(`http://localhost:8080/games${id}`)
+        .delete(`${process.env.REACT_APP_URL_BASE}/games${id}`)
         .then(({ data }) => console.log(data));
     } else {
       await axios
-        .put(`http://localhost:8080/games${id}?query=${query}`, {
+        .put(`${process.env.REACT_APP_URL_BASE}/games${id}?query=${query}`, {
           amount,
         })
         .then(({ data }) => console.log(data));
