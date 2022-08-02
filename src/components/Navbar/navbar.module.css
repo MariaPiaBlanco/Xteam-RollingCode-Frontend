@@ -27,3 +27,16 @@
     margin-top:0.4em;
     border-radius:50%;
 }
+
+.navigateLink{
+    background-color: transparent;
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+.navigateLinkActive{
+    background-color: transparent;
+    color: #6B00FD;
+    font-size: 1.2em;
+    text-decoration: underline;
+}
