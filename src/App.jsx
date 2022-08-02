@@ -5,6 +5,8 @@ import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
 import Footer from "./components/footer/Footer";
 import ContactPage from "./pages/ContactPage/ContactPage";
+import HighLightPage from "./pages/HighLightPage/HighLightPage";
+import Favorites from "./pages/Favorites/Favorites";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
 
@@ -15,6 +17,8 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/highlightpage" element={<HighLightPage />} />
+          <Route path="/Favorites" element={<Favorites />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
