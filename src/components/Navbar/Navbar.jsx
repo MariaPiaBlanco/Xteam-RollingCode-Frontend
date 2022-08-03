@@ -4,7 +4,7 @@ import searchImg from "../../assets/search.svg";
 import styles from "./navbar.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion, faCartShopping,faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const {
@@ -16,6 +16,9 @@ const Navbar = () => {
     navigateLink,
     navigateLinkActive,
     containerNavbarTop,
+    logoTopImg,
+    buttonIcon,
+    fieldInputSearch,
   } = styles;
   const navigate = useNavigate();
   return (
@@ -23,7 +26,7 @@ const Navbar = () => {
       <div className="container-fluid d-flex justify-content-between">
         <img
           onClick={() => navigate("/", { replace: true })}
-          className="col-9 col-lg-2 m-1 logo-img"
+          className={`col-9 col-lg-2 m-1 ${logoTopImg}`}
           src={logoImg}
           alt="Xteam"
         />
@@ -36,7 +39,9 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <button className={`border-0 buttonIcon ${btnQuest} ${buttonIcon}`}>
+            <FontAwesomeIcon icon={faBars} ></FontAwesomeIcon>
+          </button>
         </button>
         <div className="container container_navbar--items">
           <div
@@ -71,22 +76,22 @@ const Navbar = () => {
             </ul>
             <div className="d-flex me-2 col-10 col-lg-4 px-0">
               <input
-                className={`form-control text-center text-light field__input-search ${inpSearch}`}
+                className={`form-control text-center text-light ${fieldInputSearch} ${inpSearch}`}
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
               <button
-                className={`btn btn-outline-secondary field__input-search-icon ${btnSearch}`}
+                className={`btn btn-outline-secondary ${fieldInputSearch} ${btnSearch}`}
                 type="submit"
               >
                 {" "}
                 <img src={searchImg} alt="search" />
               </button>
-              <button className={`border-0 mx-2 button-icon ${btnCart}`}>
+              <button className={`border-0 mx-2 buttonIcon ${btnCart} ${buttonIcon}`}>
                 <FontAwesomeIcon icon={faCartShopping} ></FontAwesomeIcon>
               </button>
-              <button className={`border-0 button-icon ${btnQuest}`}>
+              <button className={`border-0 buttonIcon ${btnQuest} ${buttonIcon}`}>
                 <FontAwesomeIcon icon={faCircleQuestion} ></FontAwesomeIcon>
               </button>
             </div>
