@@ -1,9 +1,7 @@
 import React from "react";
 import logoImg from "../../assets/xteam.png";
 import searchImg from "../../assets/search.svg";
-import cartImg from "../../assets/cart.svg";
-import questImg from "../../assets/question.svg";
-import styles from "./navbar_module.css";
+import styles from "./navbar.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleQuestion, faCartShopping } from "@fortawesome/free-solid-svg-icons";
@@ -17,10 +15,11 @@ const Navbar = () => {
     btnQuest,
     navigateLink,
     navigateLinkActive,
+    containerNavbarTop,
   } = styles;
   const navigate = useNavigate();
   return (
-    <nav className={`sticky-top navbar navbar-expand-lg container_navbar--top ${navXteam}`}>
+    <nav className={`sticky-top navbar navbar-expand-lg ${containerNavbarTop} ${navXteam}`}>
       <div className="container-fluid d-flex justify-content-between">
         <img
           onClick={() => navigate("/", { replace: true })}
