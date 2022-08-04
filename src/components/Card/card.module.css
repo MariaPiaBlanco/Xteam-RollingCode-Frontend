@@ -6,12 +6,3 @@
     width: 10em;
     height: 15em;
 }
-.btnCart{
-    background-color: #5104BD;
-    border:solid #6B00FD;
-    cursor: pointer;
-}
-.btnCart:hover{
-    background-color: #36007F;
-    border:solid #36007F;
-}

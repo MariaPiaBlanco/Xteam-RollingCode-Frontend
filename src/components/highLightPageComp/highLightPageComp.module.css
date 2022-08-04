@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url("../../assets/fonts/Montserrat-Regular.ttf");
+}
+:root {
+  --primary-color: #6b00fd;
+  --secondary-color: #39ccdd;
+  --dark-color: #272a31;
+  --black-color: #10171C;
+  --light-color: #ffffff;
+}
+h2, p{
+  font-family: Montserrat-Regular;
+  color: var(--light-color);
+}
+
+.imageSize{
+  height: 20vh
+}
+
+.inputBorder{
+  border: 2px solid;
+  border-color: var(--primary-color);
+}
+
+.inputBg{
+  background-color: var(--black-color);
+  color: var(--light-color);
+}
