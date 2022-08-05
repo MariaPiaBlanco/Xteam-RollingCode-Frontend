@@ -19,7 +19,7 @@ const App = () => {
         <SocialContact />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/highlightpage" element={<HighLightPage />} />
+          <Route path="/highlightpage/:id" element={<HighLightPage />} />
           <Route path="/Favorites" element={<Favorites />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<Login />} />

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./socialContact.module.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestionCircle, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import { faTwitch, faDiscord} from "@fortawesome/free-brands-svg-icons";
