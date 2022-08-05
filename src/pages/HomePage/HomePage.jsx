@@ -1,7 +1,8 @@
 import React, {useEffect, useState }from 'react'
-import Carousel from '../../components/Carousel/Carousel';
-import Card from '../../components/Card/Card';
-import CardUserFav from '../../components/CardUserFav/CardUserFav'
+import Carousel from '../../components/carousel/Carousel.jsx';
+import Card from '../../components/card/Card';
+import Adds from '../../components/adds/Adds';
+import CardUserFav from '../../components/cardUserFav/CardUserFav';
 import axios from "axios";
 import styles from './homePage.module.css';
 
@@ -16,16 +17,16 @@ function HomePage() {
   useEffect(() => {
     getData()
   }, [])
-
   return (
     <div>
       <Carousel/>
-      <CardUserFav></CardUserFav>
       <div className='container-fluid'>
         <div className={`row justify-content-evenly m-0 ${gameCard}`}>
           {games?.map(game=><Card game={game} key={game._id}/>)}
         </div>
       </div>
+      <Adds/>
+      <CardUserFav/>
     </div>
   )  };
 

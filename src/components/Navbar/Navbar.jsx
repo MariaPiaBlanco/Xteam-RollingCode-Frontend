@@ -1,10 +1,10 @@
 import React from "react";
-import logoImg from "../../assets/Logo.jpeg";
-import searchImg from "../../assets/search.svg";
-import cartImg from "../../assets/cart.svg";
-import questImg from "../../assets/question.svg";
-import styles from "./navbar.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import logoImg from '../../assets/images/Logo.png';
+import searchImg from '../../assets/search.svg';
+import cartImg from '../../assets/cart.svg';
+import questImg from '../../assets/question.svg';
+import styles from './navbar.module.css';
 
 const Navbar = () => {
   const {

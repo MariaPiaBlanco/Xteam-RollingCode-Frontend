@@ -1,12 +1,11 @@
 import React from "react";
-// import CartContext from "../../context/CartContext";
 import styles from "./card.module.css";
 
 const Card =({game})=>{
   const {image, title, details, price} = game
   const { productGame, imgCard, pCard, btnCart } = styles;
   return (
-          <div className={`card col-2 mx-2 my-3 py-2 ${productGame}`}>
+          <div className={`card col-lg-2 col-sm-6 mx-2 my-3 py-2 ${productGame}`}>
             <img
               src={image[0]}
               className={`card-img-top my-2 ${imgCard}`}

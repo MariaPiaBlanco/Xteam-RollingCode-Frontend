@@ -1,5 +1,5 @@
 import React from "react"
-import Logo from "../../assets/images/xTeamLogo.jpeg";
+import Logo from "../../assets/images/Logo.png";
 import styles from "./footer.module.css";
 
 const Footer = () => {

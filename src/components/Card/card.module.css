@@ -6,6 +6,10 @@
     width: 10em;
     height: 15em;
 }
+img.imgCard{
+    object-fit: cover;
+    object-position: center center;
+}
 .btnCart{
     background-color: #5104BD;
     border:solid #6B00FD;
