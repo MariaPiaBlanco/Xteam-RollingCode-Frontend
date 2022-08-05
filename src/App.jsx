@@ -7,6 +7,7 @@ import Footer from "./components/footer/Footer";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import HighLightPage from "./pages/HighLightPage/HighLightPage";
 import Favorites from "./pages/Favorites/Favorites";
+import SocialContact from "./components/SocialContact/SocialContact";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
 
@@ -15,9 +16,10 @@ const App = () => {
     <>
       <BrowserRouter>
         <Navbar />
+        <SocialContact />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/highlightpage" element={<HighLightPage />} />
+          <Route path="/highlightpage/:id" element={<HighLightPage />} />
           <Route path="/Favorites" element={<Favorites />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<Login />} />

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import logoImg from '../../assets/images/Logo.png';
 import axios from "axios";
 import styles from './carousel.module.css';
 

@@ -5,6 +5,8 @@ import styles from "./loginForm.module.css"
 
 const LoginForm = ({ handleLogin, email, password }) => {
   const { bgLogin, border, inputBorder, inputBg, iconInputBg, fontLogin, fontPass } = styles;
+  const btnMensage = "Ingresar"  
+
   return (
     <div className={`container-fluid`}>
       <div className=" row justify-content-center align-items-center vh-100" >
@@ -18,7 +20,7 @@ const LoginForm = ({ handleLogin, email, password }) => {
             <span className={`input-group-text  ${inputBorder} ${iconInputBg}`} id="basic-addon1"><box-icon name="lock" color="#ffffff" ></box-icon></span>
             <input autoComplete='off' type="password" className={`form-control  ${inputBorder} ${inputBg}`} placeholder="password" aria-label="password" aria-describedby="basic-addon1" onChange={(e)=>password(e.target.value)} />
           </div>      
-          <SubmitButton />  
+          <SubmitButton mensage={btnMensage} />  
           <Link to={"/register"} className={`text-center text-decoration-none mt-5 pt-4 ${fontPass}`}>¿No estas registrado?</Link> 
           <Link to={"/recoverPass"} className={`text-center text-decoration-none ${fontPass}`}>¿Olvidaste tu contraseña?</Link> 
         </form>

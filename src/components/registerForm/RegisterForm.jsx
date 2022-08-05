@@ -5,7 +5,7 @@ import SubmitButton from '../submitButton/SubmitButton';
 
 const RegisterForm = ({ fullName, email, password1, password2, handleForm }) => {
   const { bgRegister, border, inputBorder, inputBg, iconInputBg, fontLogin, fontPass } = styles;
-
+  const btnMensage = "Registrate";
   return (
     <div className={`container-fluid`}>
       <div className=" row justify-content-center align-items-center vh-100" >
@@ -27,7 +27,7 @@ const RegisterForm = ({ fullName, email, password1, password2, handleForm }) => 
             <span className={`input-group-text  ${inputBorder} ${iconInputBg}`} id="basic-addon1"><box-icon name="lock" color="#ffffff" ></box-icon></span>
             <input autoComplete='off' type="password" className={`form-control  ${inputBorder} ${inputBg}`} placeholder="Repetir Password" aria-label="password" aria-describedby="basic-addon1" minLength={8} onChange={(e)=>{password2(e.target.value)}} />
           </div>      
-          <SubmitButton />   
+          <SubmitButton mensage={btnMensage} />   
           <Link to={"/login"} className={`text-center text-decoration-none fs-5 mt-5 pt-4 ${fontPass}`}>¿Ya tenes cuenta?</Link>
         </form>
       </div>
