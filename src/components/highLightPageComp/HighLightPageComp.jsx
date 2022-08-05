@@ -21,7 +21,7 @@ const HighLightPageComp = ( {gameData} ) => {
           </div>
         </div>
         {image && <img src={image[1]} alt="" className={`col-lg-5 m-4 ${imageSize}`} />}
-        {image && <img src={image[1]} alt="" className={`col-lg-5 m-4 ${imageSize}`} />}
+        {image && <img src={image[2]} alt="" className={`col-lg-5 m-4 ${imageSize}`} />}
         <div className="col-lg-12 d-flex flex-column align-items-center m-4">
           <h2>Ingresa un comentario</h2>
           <textarea name="" id="" cols="30" rows="10" className={`w-75 rounded-3 ${inputBg} ${inputBorder}`}></textarea>
