@@ -11,10 +11,10 @@ const Card = ({ game }) => {
   const btnMensage2 = "En el carrito";
 
   return (
-    <div className={`card col-lg-2 col-sm-6 mx-2 my-3 py-2 ${productGame}`} onClick={()=>navigate(`/highlightpage/${_id}`)} >
+    <div className={`card col-lg-3 col-sm-6 mx-1 my-3 py-2 ${productGame}`} onClick={()=>navigate(`/highlightpage/${_id}`)} >
       <img
         src={image[0]}
-        className={`card-img-top my-2 ${imgCard}`}
+        className={`card-img-top ${imgCard}`}
         alt={title}
       />
       <div className="card-body">
@@ -26,7 +26,7 @@ const Card = ({ game }) => {
       {!game.inCart ? (
       <SubmitButton mensage={btnMensage1} />
           ) : (
-          <SubmitButton mensage={btnMensage2} />
+          <SubmitButton  mensage={btnMensage2} />
         )}
     </div>
   );
