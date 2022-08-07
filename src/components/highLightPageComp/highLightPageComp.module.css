@@ -18,6 +18,10 @@ h2, p{
   height: 20vh
 }
 
+img{
+  object-fit:cover ;
+}
+
 .inputBorder{
   border: 2px solid;
   border-color: var(--primary-color);

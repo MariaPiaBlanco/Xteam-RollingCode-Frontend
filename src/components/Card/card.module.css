@@ -1,6 +1,6 @@
 .productGame{
     background-color: #272A31 !important;
-    box-shadow: 10px 10px 5px 0px rgba(112,112,112,1);
+    box-shadow: 10px 10px 5px 0px rgba(107,0,253,1);
 }
 .imgCard{
     width: 10em;
@@ -11,8 +11,8 @@ img.imgCard{
     object-position: center center;
 }
 .btnCart{
-    background-color: #5104BD;
-    border:solid #6B00FD;
+    background-color: #6B00FD;
+    border:solid  #5104BD;
     cursor: pointer;
 }
 .btnCart:hover{

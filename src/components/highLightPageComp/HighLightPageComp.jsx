@@ -10,7 +10,7 @@ const HighLightPageComp = ( {gameData} ) => {
   return (
     <section className="container-fluid">
       <div className="row">
-        {image && <img src={image[0]} alt="{title}" className="col-lg-5 rounded-3 m-4" />}
+        {image && <img src={image[0]} alt="{title}" className="col-lg-5 rounded-3 m-4 img-fluid" />}
         <div className='col-lg-5 bg-transparent text-center m-4'>
           <h2 className="my-5 display-4">{title}</h2>
           <p>{details}</p>
