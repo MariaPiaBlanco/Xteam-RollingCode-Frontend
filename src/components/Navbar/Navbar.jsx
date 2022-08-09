@@ -4,7 +4,7 @@ import searchImg from "../../assets/search.svg";
 import styles from "./navbar.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion, faCartShopping,faBars } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion, faCartShopping, faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const {
