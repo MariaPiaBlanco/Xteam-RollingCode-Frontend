@@ -1,0 +1,81 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@-moz-keyframes move-astronaut {
+    100% { -moz-transform: translate(-160px, -160px);}
+}
+@-webkit-keyframes move-astronaut {
+    100% { -webkit-transform: translate(-160px, -160px);}
+}
+@keyframes move-astronaut{
+    100% { -webkit-transform: translate(-160px, -160px); transform:translate(-160px, -160px); }
+}
+@-moz-keyframes rotate-astronaut {
+    100% { -moz-transform: rotate(-720deg);}
+}
+@-webkit-keyframes rotate-astronaut {
+    100% { -webkit-transform: rotate(-720deg);}
+}
+@keyframes rotate-astronaut{
+    100% { -webkit-transform: rotate(-720deg); transform:rotate(-720deg); }
+}
+
+.bgErrorPage {
+    width: 100vw;
+    height: calc(100vh - 73px - 27px - 104px);
+    background-image: linear-gradient(to right top, #ff1cf0, #de1cf2, #ba21f2, #9227f2, #5e2df0);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+h3 {
+    font-weight: 900;
+    font-size: 3.25em;
+    margin-bottom: 30px;
+    text-shadow: 2px 3px 0px #898999;
+    line-height: 1.2;
+}
+
+p {
+    font-weight: 900;
+    font-size: 2em;
+}
+
+.primaryButton {
+    background: #5104BD 0% 0% no-repeat padding-box;
+    border: 2px solid #6B00FD;
+    border-radius: 18px;
+}
+
+a.primaryButton{
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 50px;
+    transition: all 0.5s;
+    text-transform: uppercase;
+
+}
+
+a.primaryButton:hover{
+    color: #898999;
+}
+
+.imgAstronautAnimation{
+    animation: rotate-astronaut 200s infinite linear both alternate;
+}
+
+.boxAstronaut{
+    z-index: 110 !important;
+    position: absolute;
+    top: 60%;
+    right: 20%;
+    will-change: transform;
+    animation: move-astronaut 50s infinite linear both alternate;
+}
