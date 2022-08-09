@@ -8,6 +8,7 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import HighLightPage from "./pages/HighLightPage/HighLightPage";
 import Favorites from "./pages/Favorites/Favorites";
 import SocialContact from "./components/SocialContact/SocialContact";
+import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
 
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
