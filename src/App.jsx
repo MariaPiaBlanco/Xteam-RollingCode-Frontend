@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar.jsx";
+import Navbar from "./components/navbar/Navbar.jsx";
 import HomePage from "./pages/HomePage/HomePage";
 import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
@@ -19,7 +19,7 @@ const App = () => {
         <SocialContact />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/highlightpage" element={<HighLightPage />} />
+          <Route path="/highlightpage/:id" element={<HighLightPage />} />
           <Route path="/Favorites" element={<Favorites />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<Login />} />
