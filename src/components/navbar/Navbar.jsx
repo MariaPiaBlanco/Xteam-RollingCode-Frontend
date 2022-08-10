@@ -4,7 +4,7 @@ import searchImg from "../../assets/search.svg";
 import styles from "./navbar.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion, faCartShopping, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion, faCartShopping, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const {
@@ -19,6 +19,8 @@ const Navbar = () => {
     logoTopImg,
     buttonIcon,
     fieldInputSearch,
+    menuUser,
+    menuUserShow,
   } = styles;
   const navigate = useNavigate();
   return (
@@ -88,14 +90,24 @@ const Navbar = () => {
                 {" "}
                 <img src={searchImg} alt="search" />
               </button>
-              <button className={`border-0 mx-2 buttonIcon ${btnCart} ${buttonIcon}`}>
+              <button className={`border-0 mx-2 ${btnCart} ${buttonIcon}`}>
                 <FontAwesomeIcon icon={faCartShopping} ></FontAwesomeIcon>
               </button>
-              <button className={`border-0 buttonIcon ${btnQuest} ${buttonIcon}`}>
+              <button className={`border-0 ${btnQuest} ${buttonIcon}`}>
                 <FontAwesomeIcon icon={faCircleQuestion} ></FontAwesomeIcon>
               </button>
             </div>
           </div>
+        </div>
+        <div className="dropdown">
+          <button className={`btn btn-secondary dropdown-toggle ${menuUser}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
+          </button>
+          <ul className={`dropdown-menu ${menuUserShow}`}>
+            <li><a className="dropdown-item" href="#">Action</a></li>
+            <li><a className="dropdown-item" href="#">Action two</a></li>
+            <li><a className="dropdown-item" href="#">Action three</a></li>
+          </ul>
         </div>
       </div>
     </nav>
