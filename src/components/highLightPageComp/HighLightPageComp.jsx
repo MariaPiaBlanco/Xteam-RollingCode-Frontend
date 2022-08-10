@@ -1,11 +1,64 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SubmitButton from '../submitButton/SubmitButton';
 import styles  from "./highLightPageComp.module.css"
+import {Comment} from '../comment/Comment';
+import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
-const HighLightPageComp = ( {gameData} ) => {
-  const { title, image, details } = gameData;
-  const { imageSize, inputBg, inputBorder } = styles;
-  const btnMensage = "Añadir al carrito"
+
+
+const HighLightPageComp = ( {gameData,idGame} ) => {
+  const {title, image, details } = gameData;
+  const { imageSize, inputBg, inputBorder,errorMessage } = styles;
+  const [comments, setComments] = useState([])
+  const [commentField, setCommentField] = useState('')
+  const [errorMessageText, setErrorMessageText] = useState('')
+  const [errorlogin, setErrorlogin] = useState(false)
+  const btnMensage = "Añadir al carrito";
+
+  const getData = async () =>{ 
+    await axios.get(`${process.env.REACT_APP_URL_BASE}/comments/game/${idGame}`)
+      .then((response)=>{
+        setComments(response.data)
+      })
+    } 
+    useEffect(() => {
+      getData();
+  }, [])
+  
+  const saveComment = ()=>{
+    const token = localStorage.getItem('token')
+    const {id:idUser} = jwtDecode(token);; 
+    if(!localStorage.getItem("token")){
+      setErrorlogin(true);
+      setErrorMessageText("Debes iniciar sesión para publicar un comentario")
+      return;
+    }
+    if(commentField.trim().length === 0){
+      setErrorlogin(true);
+      setErrorMessageText("Debes ingresar un texto valido en la caja de comentarios")
+      return
+    }
+    axios
+        .post(`${process.env.REACT_APP_URL_BASE}/comments`,
+        {
+            user: idUser,
+            game: idGame,
+            comment: commentField
+          },
+          { headers: {
+              'Content-Type': 'application/json',
+              'access-token': token
+            }
+          }
+          )
+        .then((response) => {
+          setErrorlogin(false);
+          setErrorMessageText('')
+          window.location.reload()
+        });
+    return
+  }
 
   return (
     <section className="container-fluid">
@@ -22,9 +75,14 @@ const HighLightPageComp = ( {gameData} ) => {
         </div>
         {image && <img src={image[1]} alt="" className={`col-lg-5 m-4 ${imageSize}`} />}
         {image && <img src={image[2]} alt="" className={`col-lg-5 m-4 ${imageSize}`} />}
-        <div className="col-lg-12 d-flex flex-column align-items-center m-4">
+        <div className="col-lg-12 d-flex flex-column align-items-center">
           <h2>Ingresa un comentario</h2>
-          <textarea name="" id="" cols="30" rows="10" className={`w-75 rounded-3 ${inputBg} ${inputBorder}`}></textarea>
+          <textarea name="" id="" cols="30" rows="3" maxLength={250} className={`w-75 rounded-3 ${inputBg} ${inputBorder}`} onChange={(e)=> {setErrorMessageText(''); setCommentField(e.target.value)}  }></textarea>
+          {errorlogin && <p className={errorMessage}>{errorMessageText}</p>}
+          <div className="w-25">
+            <SubmitButton mensage={"Publicar comentario"} handlerClick={saveComment}/>
+          </div>
+          { Array.isArray(comments) ? comments?.map( (detail) => <Comment detail={detail} key={detail._id}></Comment>) : null}
         </div>
       </div>
     </section>

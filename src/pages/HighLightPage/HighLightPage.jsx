@@ -15,13 +15,12 @@ const HighLightPage = () => {
       alert(error)
     }
   };
-  console.log(gameData);
   useEffect(() => {
     getGameById(id)
 },[id])
   
   return (
-    <HighLightPageComp gameData={gameData} />
+    <HighLightPageComp gameData={gameData} idGame={id} />
   )
 }
 
