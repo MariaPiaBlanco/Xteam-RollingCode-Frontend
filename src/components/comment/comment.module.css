@@ -1,0 +1,27 @@
+.containerComment{
+    color: #fff;
+    border: 2px solid;
+    border-color:#6b00fd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.userComment{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: underline;
+    gap: 10px;
+}
+
+.userPhoto{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #6b00fd;;
+}
+.userCommentText{
+    font-size: 25px;
+}
