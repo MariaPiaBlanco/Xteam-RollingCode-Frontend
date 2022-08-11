@@ -6,7 +6,7 @@ import { Search } from "../../components/search/Search.jsx";
 import styles from "./navbar.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCircleQuestion, faCartShopping} from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion, faCartShopping, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const {
@@ -21,8 +21,8 @@ const Navbar = () => {
     menu_hambur,
     btn_user,
     btn_cart,
-    btn_cart_img
-   } = styles;
+    btn_cart_img,
+  } = styles;
   const navigate = useNavigate();
   return (
     <div>
@@ -107,7 +107,7 @@ const Navbar = () => {
               <button className={btn_cart}>
                 <img className={btn_cart_img} src={cartImg} alt="cart" />
               </button>
-              <button className="nav-item dropdown">
+              {/* <button className="nav-item dropdown"> */}
                 <img
                   className={`nav-link dropdown-toggle ${btn_user}`}
                   id="navbarDropdown"
@@ -143,6 +143,11 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                 </ul>
+              <button className={`border-0 mx-2 ${btnCart} ${buttonIcon}`}>
+                <FontAwesomeIcon icon={faCartShopping} ></FontAwesomeIcon>
+              </button>
+              <button className={`border-0 ${btnQuest} ${buttonIcon}`}>
+                <FontAwesomeIcon icon={faCircleQuestion} ></FontAwesomeIcon>
               </button>
             </div>
           </div>
