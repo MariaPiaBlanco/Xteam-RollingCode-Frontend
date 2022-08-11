@@ -41,7 +41,7 @@ const AddGamesModalComp = () => {
     const getCategories = await axios("http://localhost:8080/category")
     setCategories(getCategories.data.category);
   } 
-  console.log(category)
+  
   useEffect(() => {
     getAllCategories()
   }, [])
