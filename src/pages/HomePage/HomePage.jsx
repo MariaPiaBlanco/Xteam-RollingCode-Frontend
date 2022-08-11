@@ -2,7 +2,7 @@ import React, {useEffect, useState }from 'react'
 import Carousel from '../../components/carousel/Carousel.jsx';
 import Card from '../../components/card/Card';
 import Adds from '../../components/adds/Adds';
-import CardUserFav from '../../components/cardUserFav/CardUserFav';
+import WhoWeAre from '../../components/whoWeAre/WhoWeAre';
 import axios from "axios";
 import styles from './homePage.module.css';
 
@@ -26,7 +26,7 @@ function HomePage() {
         </div>
       </div>
       <Adds/>
-      <CardUserFav/>
+      <WhoWeAre/>
     </div>
   )  };
 

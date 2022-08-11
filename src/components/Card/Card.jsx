@@ -7,7 +7,7 @@ const Card = ({ game }) => {
   const navigate = useNavigate();
   const {image, title, details, price, _id} = game;
   const { productGame, imgCard, pCard } = styles;
-  const btnMensage1 = "Agregar al carrito";
+  const btnMensage1 = "Ver detalle del producto";
   const btnMensage2 = "En el carrito";
 
   return (

@@ -8,7 +8,9 @@
     --dark-color: #272a31;
     --white-color: #ffffff;
   }
-
+/* .navbar{
+    width: 100vw;
+} */
 .navXteam {
     background-color: #10171C;
     margin: 0;

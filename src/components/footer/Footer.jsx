@@ -13,7 +13,7 @@ const Footer = () => {
               <img src={Logo} alt="xTeamLogo" className="w-50" />
             </div>
             <div className="d-flex flex-column col-12 col-lg-2 align-items-center mt-2">
-              <span>Home</span>
+              <span>Inicio</span>
               <span>Destacado</span>
               <span>Contacto</span>
               <span>Favortio</span>
@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
         </div>
         <div className={`col-12 ${footerBgDarkLight} text-center`}>
-          <h6 className="pt-2">Copyright © 2022 xTeam - All rights reserved</h6>
+          <h6 className="pt-2">Copyright © 2022 xTeam - Todos los derechos reservados</h6>
         </div>
       </div>
     </section>

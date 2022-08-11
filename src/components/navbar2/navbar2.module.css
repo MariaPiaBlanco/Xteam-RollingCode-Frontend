@@ -1,0 +1,72 @@
+:root {
+    --primary-color: #6b00fd;
+    --primary-color-hover: #5E2DF0;
+    --secondary-color: #39ccdd;
+    --dark-color: #272a31;
+    --white-color: #ffffff;
+  }
+
+.navXteam {
+    background-color: #10171C;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 100;
+}
+.navigateLink {
+    background-color: transparent;
+    color: var(--white-color);
+    font-size: 1.2em;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+a.navigateLink:hover{
+    color: var(--secondary-color);
+}
+
+.navigateLinkActive {
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-size: 1.2em;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+a.navigateLinkActive:hover {
+    color: var(--secondary-color);
+}
+
+li.nav-item.px-2 a:hover {
+    color: var(--secondary-color) !important;
+}
+
+img.logoTopImg{
+    width: 120px;
+}
+
+.containerNavbarTop {
+    background: transparent linear-gradient(180deg, #141C21 0%, #141C21 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+}
+.btn_cart{
+    border: #10171C;
+    background-color: #141C21;
+}
+.btn_cart_img{
+    width: 2em;
+    height: 2em;
+}
+.btn_user{
+    margin-left: 3px;
+    background-color: #141C21;
+    border: none;
+    width: 4em;
+    height: 4em;
+}
+.menu_hambur{
+    width: 30px !important;
+    text-align: end;
+}
