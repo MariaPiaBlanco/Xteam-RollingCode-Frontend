@@ -1,0 +1,17 @@
+.inputBorder{
+    border: 2px solid !important;
+    border-color: var(--primary-color) !important;
+  }
+  .inputBg{
+    background-color: var(--black-color) !important;
+    color: var(--light-color) !important;
+  }
+  .iconInputBg{
+    background-color: var(--primary-color) !important;
+  }
+.nameGame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

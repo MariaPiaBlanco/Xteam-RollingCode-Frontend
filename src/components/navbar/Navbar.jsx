@@ -44,19 +44,6 @@ const Navbar = () => {
           src={logoImg}
           alt="Xteam"
         />
-        {/* <button
-          className="navbar-toggler me-3 border-0 btn-burger"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarScroll"
-          aria-controls="navbarScroll"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <button className={`border-0 buttonIcon ${btnQuest} ${buttonIcon}`}>
-            <FontAwesomeIcon icon={faBars} ></FontAwesomeIcon>
-          </button>
-        </button> */}
         <div className="container container_navbar--items">
           <div
             className="collapse navbar-collapse d-flex justify-content-between row"
@@ -74,16 +61,22 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item px-2">
-                <NavLink className={({ isActive }) =>
-                  isActive ? `${navigateLinkActive}` : `${navigateLink}`
-                } to="/contact">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${navigateLinkActive}` : `${navigateLink}`
+                  }
+                  to="/contact"
+                >
                   Contacto
                 </NavLink>
               </li>
               <li className="nav-item px-2">
-                <NavLink className={({ isActive }) =>
-                  isActive ? `${navigateLinkActive}` : `${navigateLink}`
-                } to={"/Favorites"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${navigateLinkActive}` : `${navigateLink}`
+                  }
+                  to={"/Favorites"}
+                >
                   Favoritos
                 </NavLink>
               </li>
@@ -98,7 +91,7 @@ const Navbar = () => {
                 onChange={(e)=> {
                   const inputUser = e.target.value.trim().toLowerCase()
                   setSearchFilter(inputUser)
-                  searchFilter != ''?  
+                  searchFilter !== ''?  
                   setGamesFiltered( [...gamesFor.filter( game => game.title.toLowerCase().includes(inputUser))] ):
                   setGamesFiltered([])
                 }}
@@ -132,7 +125,7 @@ const Navbar = () => {
       </div>
       <section className="list results_search">
         <ol>
-          {searchFilter != '' && gamesFiltered?.map( game =>  <li key={game._id}> <Link to={`/highlightpage/${game._id}`} 
+          {searchFilter !== '' && gamesFiltered?.map( game =>  <li key={game._id}> <Link to={`/highlightpage/${game._id}`} 
           onClick={()=>{
             setSearchFilter('')
             setGamesFiltered([])
