@@ -1,0 +1,19 @@
+.content_carousel{
+    width:90vw;
+    height: 30vh;
+    object-fit: cover;
+    object-position: center center;
+}
+.image_carousel{
+    width:90vw;
+    height: 40vh;
+    object-fit: cover;
+    object-position: center center;
+}
+.btnCarousel {
+    background-color:#5104BD !important;
+    border:solid #6B00FD !important;
+}
+.barCarousel{
+    background-color:#010305 !important;
+}
