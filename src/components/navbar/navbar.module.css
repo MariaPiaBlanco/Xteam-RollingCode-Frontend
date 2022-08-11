@@ -134,3 +134,17 @@ ul.menuUserShow{
     color: var(--white-color);
 
 }
+
+.list.results_search{
+    font-weight: 100;
+    color: var(--white-color);
+}
+.list.results_search li:hover p{
+    font-size: 0.2em;
+    color: var(--primary-color-hover);
+}
+
+.results_search.textResult{
+    color: var(--white-color);
+    text-decoration: none;
+}

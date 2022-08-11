@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logoImg from "../../assets/xteam.png";
 import searchImg from "../../assets/search.svg";
 import styles from "./navbar.module.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleQuestion, faCartShopping, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const Navbar = () => {
   const {
@@ -23,8 +24,19 @@ const Navbar = () => {
     menuUserShow,
   } = styles;
   const navigate = useNavigate();
+  const [gamesFor, setGamesFor] = useState([])
+  const [gamesFiltered, setGamesFiltered] = useState([])
+  const [searchFilter, setSearchFilter] = useState("")
+  const getData = async () =>{ 
+    await axios.get(`${process.env.REACT_APP_URL_BASE}/games`)
+      .then((response)=>setGamesFor(response.data))
+  }
+  useEffect(() => {
+    getData();
+  }, [])
+
   return (
-    <nav className={`sticky-top navbar navbar-expand-lg ${containerNavbarTop} ${navXteam}`}>
+    <nav className={`sticky-top navbar navbar-expand-lg d-flex flex-column ${containerNavbarTop} ${navXteam}`}>
       <div className="container-fluid d-flex justify-content-between">
         <img
           onClick={() => navigate("/", { replace: true })}
@@ -32,7 +44,7 @@ const Navbar = () => {
           src={logoImg}
           alt="Xteam"
         />
-        <button
+        {/* <button
           className="navbar-toggler me-3 border-0 btn-burger"
           type="button"
           data-bs-toggle="collapse"
@@ -44,7 +56,7 @@ const Navbar = () => {
           <button className={`border-0 buttonIcon ${btnQuest} ${buttonIcon}`}>
             <FontAwesomeIcon icon={faBars} ></FontAwesomeIcon>
           </button>
-        </button>
+        </button> */}
         <div className="container container_navbar--items">
           <div
             className="collapse navbar-collapse d-flex justify-content-between row"
@@ -78,10 +90,18 @@ const Navbar = () => {
             </ul>
             <div className="d-flex me-2 col-10 col-lg-4 px-0">
               <input
-                className={`form-control text-center text-light ${fieldInputSearch} ${inpSearch}`}
+                className={`form-control text-light ${fieldInputSearch} ${inpSearch}`}
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                value={searchFilter}
+                onChange={(e)=> {
+                  const inputUser = e.target.value.trim().toLowerCase()
+                  setSearchFilter(inputUser)
+                  searchFilter != ''?  
+                  setGamesFiltered( [...gamesFor.filter( game => game.title.toLowerCase().includes(inputUser))] ):
+                  setGamesFiltered([])
+                }}
               />
               <button
                 className={`btn btn-outline-secondary ${fieldInputSearch} ${btnSearch}`}
@@ -110,6 +130,18 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+      <section className="list results_search">
+        <ol>
+          {searchFilter != '' && gamesFiltered?.map( game =>  <li key={game._id}> <Link to={`/highlightpage/${game._id}`} 
+          onClick={()=>{
+            setSearchFilter('')
+            setGamesFiltered([])
+            }}
+              className="textResult"> {game.title} </Link></li>)}
+        </ol>
+      </section>
+
+
     </nav>
   );
 };
