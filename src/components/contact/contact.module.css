@@ -19,11 +19,12 @@
   padding: 1%;
 }
 .input{
-  border: 2px solid #6B00FD;
+  border: 2px solid !important;
+  border-color:  #6B00FD !important;
   border-radius: 10px;
   opacity: 1;
   font-family: 'Montserrat-Regular';
   padding: 1%;
-  background-color: #272A31 ;
-  color:#FFFFFF;
+  background-color: transparent !important;
+  color:#FFFFFF !important;
 }
