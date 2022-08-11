@@ -10,12 +10,3 @@ img.imgCard{
     object-fit: cover;
     object-position: center center;
 }
-.btnCart{
-    background-color: #6B00FD;
-    border:solid  #5104BD;
-    cursor: pointer;
-}
-.btnCart:hover{
-    background-color: #36007F;
-    border:solid #36007F;
-}
