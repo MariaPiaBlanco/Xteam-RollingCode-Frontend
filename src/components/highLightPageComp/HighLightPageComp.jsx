@@ -4,6 +4,7 @@ import styles  from "./highLightPageComp.module.css"
 import {Comment} from '../comment/Comment';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+import { tokenInvalid } from '../../utils/ValidationToken';
 
 
 
@@ -26,29 +27,36 @@ const HighLightPageComp = ( {gameData,idGame} ) => {
       getData();
   }, [])
   
+
+  
+
   const saveComment = ()=>{
-    const token = localStorage.getItem('token')
-    const {id:idUser} = jwtDecode(token);; 
-    if(!localStorage.getItem("token")){
+    // const token = localStorage.getItem('token')
+    // const {id:idUser} = jwtDecode(token);; 
+    let response = tokenInvalid()
+
+    if(commentField.trim().length === 0){
+          setErrorlogin(true);
+          setErrorMessageText("Debes ingresar un texto válido en la caja de comentarios")
+          return
+    }
+
+    if(response.invalidToken){
       setErrorlogin(true);
-      setErrorMessageText("Debes iniciar sesión para publicar un comentario")
+      setErrorMessageText(response.msg)
       return;
     }
-    if(commentField.trim().length === 0){
-      setErrorlogin(true);
-      setErrorMessageText("Debes ingresar un texto valido en la caja de comentarios")
-      return
-    }
+    
     axios
         .post(`${process.env.REACT_APP_URL_BASE}/comments`,
         {
-            user: idUser,
+            user: response.idUser,
             game: idGame,
             comment: commentField
           },
           { headers: {
               'Content-Type': 'application/json',
-              'access-token': token
+              'access-token': response.token
             }
           }
           )
@@ -56,8 +64,11 @@ const HighLightPageComp = ( {gameData,idGame} ) => {
           setErrorlogin(false);
           setErrorMessageText('')
           window.location.reload()
+        })
+        .catch( err => {
+          setErrorlogin(true);
+          setErrorMessageText("Debes iniciar sesión para realizar esta acción")
         });
-    return
   }
 
   return (
