@@ -37,7 +37,7 @@ const AddUserModalComp = () => {
               password: password,
               admin: admin
             })
-            window.location.reload()
+            // window.location.reload()
       } catch (error) {
         console.log(error)
       }
