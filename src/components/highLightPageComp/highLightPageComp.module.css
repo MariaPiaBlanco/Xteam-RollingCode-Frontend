@@ -38,3 +38,22 @@ img{
   color: rgba(223, 38, 38, 0.764);
   font-weight: bold;
 }
+.btnSubmit{
+  background-color: var(--primary-color) !important;
+  color: var(--light-color) !important;
+  width: 93%;
+  border-radius: 10px;
+  opacity: 1;
+  padding: 1%;
+  
+}
+.link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--light-color);
+  border-radius: 10px;
+  opacity: 1;
+  padding: 1%;
+}
