@@ -15,7 +15,7 @@ const CardUserFav = () => {
                     <button className={`btn col-7 border-0 ${btnFullStar}`}><img src={fullStar} alt="qualification" /><img src={fullStar} alt="qualification" /><img src={fullStar} alt="qualification" /><img src={fullStar} alt="qualification" /></button>
                     <button className={`btn col-1 border-0 ps-0 ms-0 ${btnIncStar}`}><img src={incompleteStar} alt="qualification" /></button>
                 </div>
-                <h5 className="card-title text-light mt-3">Card title</h5>
+                <h4 className="card-title text-light mt-3">Card title</h4>
                 <p className="card-text text-center text-light">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
         </div>
