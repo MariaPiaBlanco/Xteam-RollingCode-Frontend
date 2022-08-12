@@ -9,11 +9,15 @@ import SocialContact from "./components/socialContact/SocialContact";
 import ErrorPage from "./pages/errorPage/ErrorPage.jsx";
 import AdminPage from "./pages/adminPage/AdminPage.jsx";
 import HomePage from "./pages/homePage/HomePage.jsx";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+import UpdateCategorie from "./pages/updateCategorie/UpdateCategorie.jsx";
+import UpdateGame from "./pages/updateGame/UpdateGame.jsx";
+import LoginSucces from "./pages/logingSucces/LoginSucces";
+import RegisterSucces from "./pages/registerSucces/RegisterSucces.jsx";
+
 
 const App = () => {
-
   return (
     <>
       <BrowserRouter>
@@ -27,6 +31,10 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/updateCategorie/:id" element={<UpdateCategorie />} />
+          <Route path="/admin/updateGame/:id" element={<UpdateGame />} />
+          <Route path="/loginsucces" element={<LoginSucces />} />
+          <Route path="/registersucces" element={<RegisterSucces />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

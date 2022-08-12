@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import styles from "./addGamesModalComp.module.css"
 import SubmitButton from "../submitButton/SubmitButton";
 import axios from "axios";
+import { tokenInvalid } from "../../utils/ValidationToken";
+
 
 const AddGamesModalComp = () => {
   const { bgRegister, border, inputBorder, inputBg, iconInputBg, fontLogin } = styles;
@@ -15,25 +17,28 @@ const AddGamesModalComp = () => {
   const [category, setCategory] = useState();
   const [categories, setCategories] = useState([]);
 
-  const addGame =  (e) => {
-    try {
-      e.preventDefault()
-      const token = localStorage.getItem("token");
-      console.log(token)
-      axios.post("http://localhost:8080/games",{
-          title: title,
-          details: details,
-          image: [image1, image2, image3],
-          price: price,
-          category: category
-      } , {
-          headers: {
-            "access-token": token,
-          },
-      })
-      window.location.reload()
-    } catch (error) {
-      console.log(error.response);
+  const addGame = (e) => {
+    e.preventDefault()
+    if (title === undefined || details === undefined || image1 === undefined || image2 === undefined || image3 === undefined || price === undefined || category === undefined){
+      alert("Todos los campos son obligatorios")
+    } else {
+      try {
+        const validation = tokenInvalid();
+        axios.post("http://localhost:8080/games",{
+            title: title,
+            details: details,
+            image: [image1, image2, image3],
+            price: price,
+            category: category
+        } , {
+            headers: {
+              "access-token": validation.token,
+            },
+        })
+        window.location.reload()
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

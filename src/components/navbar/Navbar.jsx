@@ -28,6 +28,8 @@ const Navbar = () => {
   const [gamesFor, setGamesFor] = useState([])
   const [gamesFiltered, setGamesFiltered] = useState([])
   const [searchFilter, setSearchFilter] = useState("")
+  const admin = localStorage.getItem("admin")
+
   const getData = async () =>{ 
     await axios.get(`${process.env.REACT_APP_URL_BASE}/games`)
       .then((response)=>setGamesFor(response.data))
@@ -82,7 +84,7 @@ const Navbar = () => {
                   Contacto
                 </NavLink>
               </li>
-              <li className="nav-item px-2">
+              <li className={`nav-item px-2 ${admin && "d-none"}`}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? `${navigateLinkActive}` : `${navigateLink}`
