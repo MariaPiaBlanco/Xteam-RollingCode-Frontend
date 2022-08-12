@@ -19,23 +19,26 @@ const AddGamesModalComp = () => {
 
   const addGame = (e) => {
     e.preventDefault()
-    try {
-      const validation = tokenInvalid();
-      
-      axios.post("http://localhost:8080/games",{
-          title: title,
-          details: details,
-          image: [image1, image2, image3],
-          price: price,
-          category: category
-      } , {
-          headers: {
-            "access-token": validation.token,
-          },
-      })
-      window.location.reload()
-    } catch (error) {
-      console.log(error);
+    if (title === undefined || details === undefined || image1 === undefined || image2 === undefined || image3 === undefined || price === undefined || category === undefined){
+      alert("Todos los campos son obligatorios")
+    } else {
+      try {
+        const validation = tokenInvalid();
+        axios.post("http://localhost:8080/games",{
+            title: title,
+            details: details,
+            image: [image1, image2, image3],
+            price: price,
+            category: category
+        } , {
+            headers: {
+              "access-token": validation.token,
+            },
+        })
+        window.location.reload()
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

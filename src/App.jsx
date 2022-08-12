@@ -9,8 +9,8 @@ import SocialContact from "./components/socialContact/SocialContact";
 import ErrorPage from "./pages/errorPage/ErrorPage.jsx";
 import AdminPage from "./pages/adminPage/AdminPage.jsx";
 import HomePage from "./pages/homePage/HomePage.jsx";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
 import UpdateCategorie from "./pages/updateCategorie/UpdateCategorie.jsx";
 import UpdateGame from "./pages/updateGame/UpdateGame.jsx";
 
