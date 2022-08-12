@@ -45,3 +45,6 @@ h6{
 .link_footer:hover{
   color: #ffffff;
 }
+.shadow{
+  box-shadow: 1px 1px 6px 6px #6b00fd;
+}
