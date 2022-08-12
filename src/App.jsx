@@ -11,6 +11,8 @@ import AdminPage from "./pages/adminPage/AdminPage.jsx";
 import HomePage from "./pages/homePage/HomePage.jsx";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
+import UpdateCategorie from "./pages/updateCategorie/UpdateCategorie.jsx";
+import UpdateGame from "./pages/updateGame/UpdateGame.jsx";
 
 const App = () => {
 
@@ -27,6 +29,8 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/updateCategorie/:id" element={<UpdateCategorie />} />
+          <Route path="/admin/updateGame/:id" element={<UpdateGame />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

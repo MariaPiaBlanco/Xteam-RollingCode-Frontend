@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import styles from "./addGamesModalComp.module.css"
 import SubmitButton from "../submitButton/SubmitButton";
 import axios from "axios";
+import { tokenInvalid } from "../../utils/ValidationToken";
+
 
 const AddGamesModalComp = () => {
   const { bgRegister, border, inputBorder, inputBg, iconInputBg, fontLogin } = styles;
@@ -15,11 +17,11 @@ const AddGamesModalComp = () => {
   const [category, setCategory] = useState();
   const [categories, setCategories] = useState([]);
 
-  const addGame =  (e) => {
+  const addGame = (e) => {
+    e.preventDefault()
     try {
-      e.preventDefault()
-      const token = localStorage.getItem("token");
-      console.log(token)
+      const validation = tokenInvalid();
+      
       axios.post("http://localhost:8080/games",{
           title: title,
           details: details,
@@ -28,12 +30,12 @@ const AddGamesModalComp = () => {
           category: category
       } , {
           headers: {
-            "access-token": token,
+            "access-token": validation.token,
           },
       })
       window.location.reload()
     } catch (error) {
-      console.log(error.response);
+      console.log(error);
     }
   };
 
