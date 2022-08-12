@@ -134,7 +134,7 @@ ul.menuUserShow{
     max-width: 60px;
     left: -100px !important;
     color: var(--white-color);
-
+    background-color: #141C21;
 }
 
 .list.results_search{
