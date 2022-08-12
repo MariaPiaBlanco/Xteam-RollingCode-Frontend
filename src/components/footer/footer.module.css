@@ -38,4 +38,10 @@ h6{
 .iconInputBg{
   background-color: var(--primary-color) !important;
 }
-
+.link_footer{
+  text-decoration: none;
+  color: white;
+}
+.link_footer:hover{
+  color: #ffffff;
+}

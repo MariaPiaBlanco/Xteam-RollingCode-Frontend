@@ -19,6 +19,7 @@ const Navbar = () => {
     containerNavbarTop,
     logoTopImg,
     buttonIcon,
+    btn_sesion,
     fieldInputSearch,
     menuUser,
     menuUserShow,
@@ -36,6 +37,7 @@ const Navbar = () => {
   }, [])
 
   return (
+    <div>
     <nav className={`sticky-top navbar navbar-expand-lg d-flex flex-column ${containerNavbarTop} ${navXteam}`}>
       <div className="container-fluid d-flex justify-content-between">
         <img
@@ -55,9 +57,19 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     isActive ? `${navigateLinkActive}` : `${navigateLink}`
                   }
-                  to={"/highlightpage"}
+                  to={"/"}
                 >
-                  Destacado
+                  Inicio
+                </NavLink>
+              </li>
+              <li className="nav-item px-2">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${navigateLinkActive}` : `${navigateLink}`
+                  }
+                  to={"/error"}
+                >
+                  Favoritos
                 </NavLink>
               </li>
               <li className="nav-item px-2">
@@ -77,7 +89,7 @@ const Navbar = () => {
                   }
                   to={"/Favorites"}
                 >
-                  Favoritos
+                  Administrador
                 </NavLink>
               </li>
             </ul>
@@ -117,9 +129,8 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
           </button>
           <ul className={`dropdown-menu ${menuUserShow}`}>
-            <li><a className="dropdown-item" href="#">Action</a></li>
-            <li><a className="dropdown-item" href="#">Action two</a></li>
-            <li><a className="dropdown-item" href="#">Action three</a></li>
+            <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/error"}>Iniciar sesion</Link></li>
+            <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/error"}>Cerrar sesion</Link></li>
           </ul>
         </div>
       </div>
@@ -133,9 +144,8 @@ const Navbar = () => {
               className="textResult"> {game.title} </Link></li>)}
         </ol>
       </section>
-
-
     </nav>
+    </div>
   );
 };
 
