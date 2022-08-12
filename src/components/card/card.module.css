@@ -1,12 +1,19 @@
-.productGame{
+.productGame {
     background-color: #272A31 !important;
-    box-shadow: 10px 10px 5px 0px rgba(107,0,253,1);
 }
-.imgCard{
+
+.imgCard {
     width: 10em;
     height: 15em;
 }
-img.imgCard{
+
+img.imgCard {
     object-fit: cover;
     object-position: center center;
+}
+
+.gameDetails {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
