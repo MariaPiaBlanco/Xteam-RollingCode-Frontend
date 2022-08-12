@@ -18,10 +18,10 @@ const Card = ({ game }) => {
         alt={title}
       />
       <div className="card-body">
-        <h5 className={`${pCard} text-light`}>
+        <h3 className={`${pCard} text-light`}>
           {title} - ${price}
-        </h5>
-        <p className={`card-text text-light`}>{details}</p>
+        </h3>
+        <p className={`card-text text-light fs-5`}>{details}</p>
       </div>
       {!game.inCart ? (
       <SubmitButton mensage={btnMensage1} />

@@ -3,7 +3,6 @@ import SubmitButton from '../submitButton/SubmitButton';
 import styles  from "./highLightPageComp.module.css"
 import {Comment} from '../comment/Comment';
 import axios from 'axios';
-import jwtDecode from 'jwt-decode';
 import { tokenInvalid } from '../../utils/ValidationToken';
 
 
