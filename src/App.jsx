@@ -1,18 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import Navbar from "./components/navbar/Navbar.jsx";
 import Register from "./pages/register/Register.jsx";
 import Login from "./pages/login/Login.jsx";
 import Footer from "./components/footer/Footer";
-import Favorites from "./pages/Favorites/Favorites";
-import HighLightPage from "./pages/HighLightPage/HighLightPage";
-import ContactPage from "./pages/ContactPage/ContactPage";
-import SocialContact from "./components/SocialContact/SocialContact";
-import ErrorPage from "./pages/ErrorPage/ErrorPage.jsx";
+import Favorites from "./pages/favorites/Favorites";
+import HighLightPage from "./pages/highLightPage/HighLightPage";
+import ContactPage from "./pages/contactPage/ContactPage";
+import SocialContact from "./components/socialContact/SocialContact";
+import ErrorPage from "./pages/errorPage/ErrorPage.jsx";
 import AdminPage from "./pages/adminPage/AdminPage.jsx";
+import HomePage from "./pages/homePage/HomePage.jsx";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
-import HomePage from "./pages/HomePage/HomePage.jsx";
 
 const App = () => {
 
