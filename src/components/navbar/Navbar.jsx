@@ -4,7 +4,7 @@ import searchImg from "../../assets/search.svg";
 import styles from "./navbar.module.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion, faCartShopping, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion, faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const Navbar = () => {
@@ -87,7 +87,8 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     isActive ? `${navigateLinkActive}` : `${navigateLink}`
                   }
-                  to={"/Favorites"}
+                  to={"/admin"}
+                  onClick={()=>{localStorage.removeItem("admin")}}
                 >
                   Administrador
                 </NavLink>
@@ -129,8 +130,8 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
           </button>
           <ul className={`dropdown-menu ${menuUserShow}`}>
-            <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/error"}>Iniciar sesion</Link></li>
-            <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/error"}>Cerrar sesion</Link></li>
+            <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/login"}>Iniciar sesion</Link></li>
+            <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/login"} OnClick={()=>localStorage.removeitem("token")}>Cerrar sesion</Link></li>
           </ul>
         </div>
       </div>
