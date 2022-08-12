@@ -21,9 +21,9 @@ const ErrorPage = () => {
                 />
             </div>
             <div className={`${textCenter}`}>
-                <h3>Error Page 404</h3>
-                <p>Not found</p>
-                <Link to="/" className={`${primaryButton}`}>Go to Home </Link>
+                <h1>Error!</h1>
+                <h4>Pagina no encontrada</h4>
+                <Link to="/" className={`${primaryButton}`}>Volver a Inicio </Link>
             </div>
         </div>
     )

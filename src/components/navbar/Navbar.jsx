@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logoImg from "../../assets/xteam.png";
 import searchImg from "../../assets/search.svg";
 import styles from "./navbar.module.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion, faCartShopping, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion, faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const Navbar = () => {
   const {
@@ -18,13 +19,28 @@ const Navbar = () => {
     containerNavbarTop,
     logoTopImg,
     buttonIcon,
+    btn_sesion,
     fieldInputSearch,
     menuUser,
     menuUserShow,
   } = styles;
   const navigate = useNavigate();
+  const [gamesFor, setGamesFor] = useState([])
+  const [gamesFiltered, setGamesFiltered] = useState([])
+  const [searchFilter, setSearchFilter] = useState("")
+  const admin = localStorage.getItem("admin")
+
+  const getData = async () =>{ 
+    await axios.get(`${process.env.REACT_APP_URL_BASE}/games`)
+      .then((response)=>setGamesFor(response.data))
+  }
+  useEffect(() => {
+    getData();
+  }, [])
+
   return (
-    <nav className={`sticky-top navbar navbar-expand-lg ${containerNavbarTop} ${navXteam}`}>
+    <div>
+    <nav className={`sticky-top navbar navbar-expand-lg d-flex flex-column ${containerNavbarTop} ${navXteam}`}>
       <div className="container-fluid d-flex justify-content-between">
         <img
           onClick={() => navigate("/", { replace: true })}
@@ -32,19 +48,6 @@ const Navbar = () => {
           src={logoImg}
           alt="Xteam"
         />
-        <button
-          className="navbar-toggler me-3 border-0 btn-burger"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarScroll"
-          aria-controls="navbarScroll"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <button className={`border-0 buttonIcon ${btnQuest} ${buttonIcon}`}>
-            <FontAwesomeIcon icon={faBars} ></FontAwesomeIcon>
-          </button>
-        </button>
         <div className="container container_navbar--items">
           <div
             className="collapse navbar-collapse d-flex justify-content-between row"
@@ -56,32 +59,57 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     isActive ? `${navigateLinkActive}` : `${navigateLink}`
                   }
-                  to={"/highlightpage"}
+                  to={"/"}
                 >
-                  Destacado
+                  Inicio
                 </NavLink>
               </li>
               <li className="nav-item px-2">
-                <NavLink className={({ isActive }) =>
-                  isActive ? `${navigateLinkActive}` : `${navigateLink}`
-                } to="/contact">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${navigateLinkActive}` : `${navigateLink}`
+                  }
+                  to={"/error"}
+                >
+                  Favoritos
+                </NavLink>
+              </li>
+              <li className="nav-item px-2">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${navigateLinkActive}` : `${navigateLink}`
+                  }
+                  to="/contact"
+                >
                   Contacto
                 </NavLink>
               </li>
-              <li className="nav-item px-2">
-                <NavLink className={({ isActive }) =>
-                  isActive ? `${navigateLinkActive}` : `${navigateLink}`
-                } to={"/Favorites"}>
-                  Favoritos
+              <li className={`nav-item px-2 ${admin && "d-none"}`}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? `${navigateLinkActive}` : `${navigateLink}`
+                  }
+                  to={"/admin"}
+                  onClick={()=>{localStorage.removeItem("admin")}}
+                >
+                  Administrador
                 </NavLink>
               </li>
             </ul>
             <div className="d-flex me-2 col-10 col-lg-4 px-0">
               <input
-                className={`form-control text-center text-light ${fieldInputSearch} ${inpSearch}`}
+                className={`form-control text-light ${fieldInputSearch} ${inpSearch}`}
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                value={searchFilter}
+                onChange={(e)=> {
+                  const inputUser = e.target.value.trim().toLowerCase()
+                  setSearchFilter(inputUser)
+                  searchFilter !== ''?  
+                  setGamesFiltered( [...gamesFor.filter( game => game.title.toLowerCase().includes(inputUser))] ):
+                  setGamesFiltered([])
+                }}
               />
               <button
                 className={`btn btn-outline-secondary ${fieldInputSearch} ${btnSearch}`}
@@ -104,13 +132,23 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
           </button>
           <ul className={`dropdown-menu ${menuUserShow}`}>
-            <li><a className="dropdown-item" href="#">Action</a></li>
-            <li><a className="dropdown-item" href="#">Action two</a></li>
-            <li><a className="dropdown-item" href="#">Action three</a></li>
+            <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/login"}>Iniciar sesion</Link></li>
+            <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/login"} OnClick={()=>localStorage.removeitem("token")}>Cerrar sesion</Link></li>
           </ul>
         </div>
       </div>
+      <section className="list results_search">
+        <ol>
+          {searchFilter !== '' && gamesFiltered?.map( game =>  <li key={game._id}> <Link to={`/highlightpage/${game._id}`} 
+          onClick={()=>{
+            setSearchFilter('')
+            setGamesFiltered([])
+            }}
+              className="textResult"> {game.title} </Link></li>)}
+        </ol>
+      </section>
     </nav>
+    </div>
   );
 };
 

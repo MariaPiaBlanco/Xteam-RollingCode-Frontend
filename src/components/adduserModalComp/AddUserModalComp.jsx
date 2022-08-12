@@ -37,7 +37,7 @@ const AddUserModalComp = () => {
               password: password,
               admin: admin
             })
-            window.location.reload()
+            // window.location.reload()
       } catch (error) {
         console.log(error)
       }
@@ -47,7 +47,7 @@ const AddUserModalComp = () => {
 
 
   return (
-    <div className="modal fade" id="addUserModal" tabIndex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div className="modal fade col-2" id="addUserModal" tabIndex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className={`container-fluid`}>
@@ -71,8 +71,8 @@ const AddUserModalComp = () => {
                   <input autoComplete='off' type="password" className={`form-control  ${inputBorder} ${inputBg}`} placeholder="Repetir Password" aria-label="password" aria-describedby="basic-addon1" minLength={8} onChange={(e)=>setSecondPass(e.target.value)}/>
                 </div>        
                 <div className="input-group mb-3">
-                  <label className="input-group-text" htmlFor="inputGroupSelect01">Perfil</label>
-                  <select className="form-select" id="inputGroupSelect01" defaultValue="Usuario" onChange={(e)=>setAdmin(e.target.value)} >
+                  <label className={`input-group-text ${inputBorder} ${iconInputBg}`} htmlFor="inputGroupSelect01"><box-icon name="lock" color="#ffffff" ></box-icon></label>
+                  <select className={`form-select ${inputBg} ${inputBorder}`} id="inputGroupSelect01" defaultValue="Usuario" onChange={(e)=>setAdmin(e.target.value)} >
                     <option value={false}>Usuario</option>
                     <option value={true}>Administrador</option>
                   </select>

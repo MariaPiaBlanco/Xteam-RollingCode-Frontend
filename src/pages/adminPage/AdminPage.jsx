@@ -2,10 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AdminUserTable from "../../components/adminUserTable/AdminUserTable";
 import AddUserModalComp from "../../components/adduserModalComp/AddUserModalComp";
+import AddGamesModalComp from "../../components/addGamesModalComp/AddGamesModalComp";
+import AddCategoryModal from "../../components/addCategoryModal/AddCategoryModal";
 import SubmitButton from "../../components/submitButton/SubmitButton";
+import styles from "./adminPage.module.css"
+import AdminGamesTable from "../../components/adminGamesTable/adminGamesTable";
+import AdminCategoryTable from "../../components/adminCategoryTable/AdminCategoryTable";
 
 const AdminPage = () => {
   const [users, setUsers] = useState([]);
+  const [games, setGames] = useState([]);
+  const [categories, setCategories] = useState([])
+  const {productsTable} = styles;
 
   const getAllUsers = async () => {
     try {
@@ -25,31 +33,105 @@ const AdminPage = () => {
     getAllUsers()
   }, [])
   
+  const getAllgames = async () => {
+    try {
+      const getGames = await axios.get("http://localhost:8080/games")
+      setGames(getGames.data.games);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllgames();
+  }, []);
+
+  const getAllCategories = async () => {
+    const getCategories = await axios("http://localhost:8080/category")
+    setCategories(getCategories.data.category)
+  }
+  
+  useEffect(() => {
+    getAllCategories()
+  }, [])
 
   return (
     <div>
-      <div className="d-flex flex-column align-items-center">
-          <h2 className=" text-center">Tabla de usuarios</h2>
-          <SubmitButton  mensage={"Agregar usuario"} dataBsToggle="modal" dataBsTarget={"#addUserModal"} />
-          <AddUserModalComp />
-          <table className="table table-dark table-hover table-responsive">
-            <thead>
-              <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Email</th>
-                <th scope="col">Admin</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Banear</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user) => (
-                <AdminUserTable user={user} key={user._id} />
-              ))}
-            </tbody>
-          </table>
+      <section className="m-5">
+        <div className="container-fluid">
+          <div className="row justify-content-around">
+            <h2 className="col-12 col-lg-6 text-center display-4">Tabla de usuarios</h2>
+            <div className="col-12 col-lg-6">
+              <SubmitButton  mensage={"Agregar usuario"} dataBsToggle="modal" dataBsTarget="#addUserModal" />
+              <AddUserModalComp />
+            </div>
+          </div>
         </div>
-    </div>
+        <table className={`table table-dark table-hover table-responsive ${productsTable}`}>
+          <thead>
+            <tr>
+              <th scope="col" className="p-3">Nombre</th>
+              <th scope="col" className="p-3">Email</th>
+              <th scope="col" className="p-3">Admin</th>
+              <th scope="col" className="p-3">Estado</th>
+              <th scope="col" className="p-3">Banear</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users?.map((user) => <AdminUserTable user={user} key={user._id} />)}
+          </tbody>
+        </table>
+      </section>
+      <section className="m-5">
+        <div className="container-fluid">
+          <div className="row justify-content-around">
+            <h2 className="col-12 col-lg-6 text-center display-4">Tabla de Juegos</h2>
+            <div className="col-12 col-lg-6">
+              <SubmitButton  mensage={"Agregar juego"} dataBsToggle="modal" dataBsTarget="#addGameModal" />
+              <AddGamesModalComp />
+            </div>
+          </div>
+        </div>
+        <table className="table table-dark table-hover table-bordered align-middle table-responsive col-10">
+          <thead>
+            <tr>
+              <th scope="col">Titulo</th>
+              <th scope="col">Detalle</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Eliminar</th>
+              <th scope="col">Modificar</th>
+              <th scope="col">Desstacar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {games?.map((game)=> <AdminGamesTable game={game} key={game._id}/>)} 
+          </tbody>
+        </table>
+      </section>    
+      <section className="m-5">
+        <div className="container-fluid">
+          <div className="row justify-content-around">
+            <h2 className="col-12 col-lg-6 text-center display-4">Tabla de Categorias</h2>
+            <div className="col-12 col-lg-6">
+              <SubmitButton  mensage={"Agregar categoria"} dataBsToggle="modal" dataBsTarget="#addCategoryModal" />
+              <AddCategoryModal />
+            </div>
+          </div>
+        </div>
+        <table className="table table-dark table-hover table-bordered align-middle table-responsive col-10">
+          <thead>
+            <tr>
+              <th scope="col">Categoria</th>
+              <th scope="col">Editar</th>
+              <th scope="col">Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {categories?.map((categorie)=> <AdminCategoryTable categorie={categorie} key={categorie._id}/>)} 
+          </tbody>
+        </table>
+      </section>    
+    </div>  
   )
 }
 

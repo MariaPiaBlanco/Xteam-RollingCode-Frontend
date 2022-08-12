@@ -36,7 +36,7 @@ const Register = () => {
         })
         .then(() => {
           alert("El usuario fue creado con exito");
-          navigate("/login");
+          navigate("/registersucces");
         })
         .catch(() => alert("error"));
     }

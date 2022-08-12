@@ -3,14 +3,13 @@ import SubmitButton from '../submitButton/SubmitButton';
 import styles  from "./highLightPageComp.module.css"
 import {Comment} from '../comment/Comment';
 import axios from 'axios';
-import jwtDecode from 'jwt-decode';
 import { tokenInvalid } from '../../utils/ValidationToken';
-
+import { Link } from 'react-router-dom';
 
 
 const HighLightPageComp = ( {gameData,idGame} ) => {
   const {title, image, details } = gameData;
-  const { imageSize, inputBg, inputBorder,errorMessage } = styles;
+  const { imageSize, inputBg, inputBorder,errorMessage,btnSubmit, link } = styles;
   const [comments, setComments] = useState([])
   const [commentField, setCommentField] = useState('')
   const [errorMessageText, setErrorMessageText] = useState('')
@@ -86,6 +85,11 @@ const HighLightPageComp = ( {gameData,idGame} ) => {
         </div>
         {image && <img src={image[1]} alt="" className={`col-lg-5 m-4 ${imageSize}`} />}
         {image && <img src={image[2]} alt="" className={`col-lg-5 m-4 ${imageSize}`} />}
+        <div className='mb-3 m-2 col-3 '>
+          <button className= {`${btnSubmit} `}>
+          <Link to='/' className= {`${link}`}><box-icon name='chevron-left-square' color="#ffffff"></box-icon> Volver</Link>
+          </button>  
+        </div>
         <div className="col-lg-12 d-flex flex-column align-items-center">
           <h2>Ingresa un comentario</h2>
           <textarea name="" id="" cols="30" rows="3" maxLength={250} className={`w-75 rounded-3 ${inputBg} ${inputBorder}`} onChange={(e)=> {setErrorMessageText(''); setCommentField(e.target.value)}  }></textarea>
@@ -95,7 +99,9 @@ const HighLightPageComp = ( {gameData,idGame} ) => {
           </div>
           { Array.isArray(comments) ? comments?.map( (detail) => <Comment detail={detail} key={detail._id}></Comment>) : null}
         </div>
+
       </div>
+      
     </section>
   )
 }

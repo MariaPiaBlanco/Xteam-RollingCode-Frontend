@@ -1,0 +1,27 @@
+.circularPortrait{
+position: relative; 
+width: 200px; 
+height: 200px; 
+overflow: hidden; 
+border-radius: 50%;
+} 
+.circularPortrait img { 
+    width: 100%; 
+    height: auto; 
+}
+.image_WhoWeAre{
+    object-fit: cover;
+    height: 20vh;
+    width: 30vw;
+    border-radius: 50%;
+}
+.image_WhoWeAre_two{
+    object-fit: cover;
+    height: 20vh;
+    width: 35vw;
+    border-radius: 50%;
+}
+.card_WhoWeAre{
+    background-color: #10171C !important;
+    border: solid 2px #6B00FD !important;
+}

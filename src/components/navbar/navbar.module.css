@@ -8,7 +8,9 @@
     --dark-color: #272a31;
     --white-color: #ffffff;
   }
-
+/* .navbar{
+    width: 100vw;
+} */
 .navXteam {
     background-color: #10171C;
     margin: 0;
@@ -132,5 +134,19 @@ ul.menuUserShow{
     max-width: 60px;
     left: -100px !important;
     color: var(--white-color);
+    background-color: #141C21;
+}
 
+.list.results_search{
+    font-weight: 100;
+    color: var(--white-color);
+}
+.list.results_search li:hover p{
+    font-size: 0.2em;
+    color: var(--primary-color-hover);
+}
+
+.results_search.textResult{
+    color: var(--white-color);
+    text-decoration: none;
 }
