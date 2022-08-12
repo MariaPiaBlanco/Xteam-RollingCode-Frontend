@@ -18,7 +18,7 @@ const SocialContact = () => {
                     className={({ isActive }) =>
                         isActive ? `${navigateLinkActive}` : `${navigateLink}`
                     }
-                    to={"/"}
+                    to={"*"}
                 >
                     <FontAwesomeIcon icon={faTwitch} ></FontAwesomeIcon>
                 </NavLink>
@@ -26,21 +26,21 @@ const SocialContact = () => {
             <li className="nav-item px-2">
                 <NavLink className={({ isActive }) =>
                     isActive ? `${navigateLinkActive}` : `${navigateLink}`
-                } to="/">
+                } to="*">
                     <FontAwesomeIcon icon={faDiscord} ></FontAwesomeIcon>
                 </NavLink>
             </li>
             <li className="nav-item px-2">
                 <NavLink className={({ isActive }) =>
                     isActive ? `${navigateLinkActive}` : `${navigateLink}`
-                } to={"/"}>
+                } to={"*"}>
                     <FontAwesomeIcon icon={faEnvelope} ></FontAwesomeIcon>
                 </NavLink>
             </li>
             <li className="nav-item px-2">
                 <NavLink className={({ isActive }) =>
                     isActive ? `${navigateLinkActive}` : `${navigateLink}`
-                } to={"/"}>
+                } to={"*"}>
                     <FontAwesomeIcon icon={faQuestionCircle} ></FontAwesomeIcon>
                 </NavLink>
             </li>

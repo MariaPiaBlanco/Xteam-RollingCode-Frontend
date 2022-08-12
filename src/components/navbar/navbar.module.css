@@ -7,7 +7,8 @@
     --secondary-color: #39ccdd;
     --dark-color: #272a31;
     --white-color: #ffffff;
-  }
+}
+
 /* .navbar{
     width: 100vw;
 } */
@@ -54,7 +55,7 @@
     font-weight: 500;
 }
 
-a.navigateLink:hover{
+a.navigateLink:hover {
     color: var(--secondary-color);
 }
 
@@ -75,7 +76,7 @@ li.nav-item.px-2 a:hover {
     color: var(--secondary-color) !important;
 }
 
-img.logoTopImg{
+img.logoTopImg {
     width: 120px;
 }
 
@@ -84,7 +85,8 @@ img.logoTopImg{
     box-shadow: 0px 3px 6px #00000029;
 }
 
-input.fieldInputSearch, input.fieldInputSearch:focus {
+input.fieldInputSearch,
+input.fieldInputSearch:focus {
     border-radius: 5px 0px 0px 5px;
     border: 2px solid var(--primary-color);
     background-color: transparent;
@@ -111,17 +113,17 @@ button.fieldInputSearch-icon:hover {
     border: 2px solid var(--primary-color-hover);
 }
 
-button.buttonIcon{
+button.buttonIcon {
     background-color: transparent;
     color: var(--white-color);
     transition: all 0.5s;
 }
 
-button.buttonIcon:hover{
+button.buttonIcon:hover {
     color: var(--primary-color);
 }
 
-button.menuUser{
+button.menuUser {
     background: transparent linear-gradient(180deg, #5104BD 0%, #6B00FD 100%) 0% 0% no-repeat padding-box;
     border: none;
     width: 50px;
@@ -130,23 +132,46 @@ button.menuUser{
     display: block;
 }
 
-ul.menuUserShow{
+ul.menuUserShow {
     max-width: 60px;
     left: -100px !important;
     color: var(--white-color);
     background-color: #141C21;
 }
 
-.list.results_search{
+.list.results_search {
     font-weight: 100;
     color: var(--white-color);
 }
-.list.results_search li:hover p{
+
+.list.results_search li:hover p {
     font-size: 0.2em;
     color: var(--primary-color-hover);
 }
 
-.results_search.textResult{
+.results_search.textResult {
     color: var(--white-color);
     text-decoration: none;
+}
+
+
+@media only screen and (max-width: 1279px) and (min-width: 280px) {
+
+    .containerNavbarLogo {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    ul.containerListItems {
+        justify-content: center;
+        align-items: center;
+    }
+    
+    ul.containerListItems li {
+        display: inline-block;
+    }
+
+
 }
