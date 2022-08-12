@@ -4,14 +4,14 @@ import Logo from "../../assets/images/Logo.png";
 import styles from "./footer.module.css";
 
 const Footer = () => {
-  const { footerBgDark, footerBgDarkLight, inputBorder, inputBg, iconInputBg, link_footer } = styles;
+  const { footerBgDark, footerBgDarkLight, inputBorder, inputBg, iconInputBg, link_footer, shadow} = styles;
   return (
     <section className="containter-fluid">
       <div className="row m-0">
         <div className={`container-fluid col-12 ${footerBgDark}`}>
           <div className="row justify-content-evenly">
             <div className="col-12 col-lg-4 text-center">
-              <img src={Logo} alt="xTeamLogo" className="w-50" />
+             <Link to='/' className={`text-decoration-none ${shadow} m-5 p-5`}><img src={Logo} alt="xTeamLogo" className={`w-50`} /></Link>      
             </div>
             <div className="d-flex flex-column col-12 col-lg-2 align-items-center mt-2">
               <Link className={link_footer} to="/">Inicio</Link>
