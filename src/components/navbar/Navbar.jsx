@@ -4,7 +4,7 @@ import searchImg from "../../assets/search.svg";
 import styles from "./navbar.module.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleQuestion, faCartShopping, faBars, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion, faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const Navbar = () => {
@@ -28,6 +28,8 @@ const Navbar = () => {
   const [gamesFor, setGamesFor] = useState([])
   const [gamesFiltered, setGamesFiltered] = useState([])
   const [searchFilter, setSearchFilter] = useState("")
+  const admin = localStorage.getItem("admin")
+
   const getData = async () =>{ 
     await axios.get(`${process.env.REACT_APP_URL_BASE}/games`)
       .then((response)=>setGamesFor(response.data))
@@ -82,12 +84,12 @@ const Navbar = () => {
                   Contacto
                 </NavLink>
               </li>
-              <li className="nav-item px-2">
+              <li className={`nav-item px-2 ${admin && "d-none"}`}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? `${navigateLinkActive}` : `${navigateLink}`
                   }
-                  to={"/Favorites"}
+                  to={"/admin"}
                 >
                   Administrador
                 </NavLink>
@@ -129,7 +131,7 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faUser} ></FontAwesomeIcon>
           </button>
           <ul className={`dropdown-menu ${menuUserShow}`}>
-            <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/error"}>Iniciar sesion</Link></li>
+            <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/login"}>Iniciar sesion</Link></li>
             <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/error"}>Cerrar sesion</Link></li>
           </ul>
         </div>
