@@ -28,7 +28,7 @@ const AddCategoryModal = () => {
         <div className="modal-content">
           <div className={`container-fluid`}>
             <div className=" row justify-content-center align-items-center" >
-              <form className={`col-12 w-100 rounded ${bgRegister} ${border} d-flex flex-column align-items-center`} onSubmit={addCategory} >
+              <form className={`col-12  rounded ${bgRegister} ${border} d-flex flex-column align-items-center`} onSubmit={addCategory} >
                 <h2 className={`text-center fs-4 mb-5 pb-4 mt-3 ${fontLogin}`}>Añadir Categoria</h2>
                 <div className="input-group mb-3 p-2">
                   <span className={`input-group-text ${inputBorder} ${iconInputBg}`} id="basic-addon1"><box-icon name="category" color="#ffffff" ></box-icon></span>

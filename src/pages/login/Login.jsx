@@ -11,19 +11,21 @@ const Login = () => {
   window.addEventListener("load", ()=>{
       localStorage.getItem("token") && navigate("/");
       localStorage.removeItem("token")
+      localStorage.removeItem("admin")
   })
 
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
       await axios
-        .post(`${process.env.REACT_APP_URL_BASE}/users/login`, {
+        .post(`http://localhost:8080/users/login`, {
           email: email,
           password: password,
         })
         .then((response) => {
           localStorage.setItem("token", response.data.token)
-          navigate("/")
+          localStorage.setItem("admin", response.data.admin)
+          navigate("/loginsucces")
         });
     } catch (error) {
       alert(error.response.data.msg);
