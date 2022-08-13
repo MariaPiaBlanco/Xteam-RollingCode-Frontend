@@ -87,7 +87,7 @@ const Navbar = () => {
                   Contacto
                 </NavLink>
               </li>
-              <li className={`nav-item px-2 list-inline ${admin && "d-none"}`}>
+              <li className={`nav-item px-2 list-inline ${!admin && "d-none"}`}>
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? `${navigateLinkActive}` : `${navigateLink}`
