@@ -10,8 +10,8 @@ const Login = () => {
 
   window.addEventListener("load", ()=>{
       localStorage.getItem("token") && navigate("/");
-      localStorage.removeItem("token")
-      localStorage.removeItem("admin")
+      
+      
   })
 
   const handleLogin = async (event) => {
