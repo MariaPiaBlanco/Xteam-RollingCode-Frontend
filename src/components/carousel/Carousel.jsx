@@ -16,7 +16,7 @@ const Carousel = () =>{
   return (
     <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel" >
       <div className="carousel-inner">
-        {gamesFav.map(x=>{ 
+        {gamesFav?.map(x=>{ 
         return <div className="carousel-item active col-12 content_carousel" key={x._id}>
         <img src={x.image?.[0]} className="d-block w-100 image_carousel" alt="..."/>
         <div className="carousel-caption d-none d-md-block col-3 ms-0 ps-0">

@@ -151,7 +151,7 @@ const Navbar = () => {
             </button>
             <ul className={`dropdown-menu ${menuUserShow}`}>
               <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/login"}>Iniciar sesion</Link></li>
-              <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/login"} OnClick={() => localStorage.removeitem("token")}>Cerrar sesion</Link></li>
+              <li><Link className={`dropdown-item text-white ${btn_sesion}`} to={"/login"} onClick={() => localStorage.removeitem("token")}>Cerrar sesion</Link></li>
             </ul>
           </div>
         </div>
