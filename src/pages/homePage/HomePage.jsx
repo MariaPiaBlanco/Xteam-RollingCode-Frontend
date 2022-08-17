@@ -12,7 +12,7 @@ function HomePage() {
   const [games, setGames] = useState([])
   const getData = async () => {
     await axios.get(`${process.env.REACT_APP_URL_BASE}/games`)
-      .then((response) => setGames(response.data))
+      .then((response) => setGames(response.data.games))
   }
   useEffect(() => {
     getData()

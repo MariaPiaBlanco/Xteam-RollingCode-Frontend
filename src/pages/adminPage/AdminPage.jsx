@@ -18,7 +18,7 @@ const AdminPage = () => {
   const getAllUsers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const getUsers = await axios(`http://localhost:8080/users`, {
+      const getUsers = await axios(`${process.env.REACT_APP_URL_BASE}/users`, {
         headers: {
           "access-token": token,
         },
@@ -35,7 +35,7 @@ const AdminPage = () => {
   
   const getAllgames = async () => {
     try {
-      const getGames = await axios.get("http://localhost:8080/games")
+      const getGames = await axios.get(`${process.env.REACT_APP_URL_BASE}/games`)
       setGames(getGames.data.games);
     } catch (error) {
       console.log(error);
@@ -47,7 +47,7 @@ const AdminPage = () => {
   }, []);
 
   const getAllCategories = async () => {
-    const getCategories = await axios("http://localhost:8080/category")
+    const getCategories = await axios(`${process.env.REACT_APP_URL_BASE}/category`)
     setCategories(getCategories.data.category)
   }
   
