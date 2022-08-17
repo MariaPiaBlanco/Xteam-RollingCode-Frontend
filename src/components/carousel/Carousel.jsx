@@ -7,7 +7,7 @@ const Carousel = () =>{
   const [gamesFav, setGamesFav] = useState([]);
   const getData = async()=>{
   const response = await axios(`${process.env.REACT_APP_URL_BASE}/games`)
-      setGamesFav(response.data.filter(game=> game.fav))
+      setGamesFav(response.data.games.filter(game=> game.fav))
  }
   useEffect(() => {
     getData();
