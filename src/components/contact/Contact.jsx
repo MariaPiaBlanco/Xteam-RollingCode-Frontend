@@ -1,6 +1,7 @@
 import React from 'react'
 import Emailjs from 'emailjs-com'
 import styles from '../contact/contact.module.css'
+import SubmitButton from '../submitButton/SubmitButton';
 
 const Contact = () => {
     function enviarMail(e){
@@ -17,7 +18,7 @@ const Contact = () => {
             console.log(error.text);
         })
     }
-
+    const btnMensage = "Enviar";
   return (
     <div className={`m-5 ${styles.body}  `}>
     <form onSubmit={enviarMail}>
@@ -44,7 +45,7 @@ const Contact = () => {
               <textarea className={`form-control ${styles.input}`} id="mensaje" name="mensaje" rows="3" required placeholder='Por favor ingrese su mensaje' minLength={30}></textarea>
            </div>
           <div className={`mb-3 m-2 col-6 `}>
-              <button type="submit" className={`btn ${styles.label}`}>Enviar</button>
+          <SubmitButton mensage={btnMensage}/>
           </div>   
       </div>        
      </div>

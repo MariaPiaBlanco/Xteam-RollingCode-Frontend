@@ -10,6 +10,8 @@ function HomePage() {
   const { gameCard } = styles;
 
   const [games, setGames] = useState([])
+  
+  
   const getData = async () => {
     await axios.get(`${process.env.REACT_APP_URL_BASE}/games`)
       .then((response) => setGames(response.data.games))
