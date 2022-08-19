@@ -18,6 +18,7 @@ import RegisterSucces from "./pages/registerSucces/RegisterSucces.jsx";
 
 
 const App = () => {
+  const token = localStorage.getItem("token");
   return (
     <>
       <BrowserRouter>
@@ -27,7 +28,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/highlightpage/:id" element={<HighLightPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={!token ? <Login /> : <HomePage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/admin" element={<AdminPage />} />
