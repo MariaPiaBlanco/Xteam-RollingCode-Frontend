@@ -31,7 +31,7 @@ const AddUserModalComp = () => {
     } else {
       try {
         axios
-            .post(`http://localhost:8080/users`, {
+            .post(`${process.env.REACT_APP_URL_BASE}/users`, {
               fullname: fullname,
               email: email,
               password: password,

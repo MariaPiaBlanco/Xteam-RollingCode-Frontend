@@ -46,26 +46,28 @@
     border-radius: 50%;
 }
 
-.navigateLink {
+a.navigateLink {
     background-color: transparent;
     color: var(--white-color);
-    font-size: 1.2em;
+    font-size: 1em;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    margin: 0.5rem 0.4rem;
 }
 
 a.navigateLink:hover {
     color: var(--secondary-color);
 }
 
-.navigateLinkActive {
+a.navigateLinkActive {
     background-color: transparent;
     color: var(--secondary-color);
-    font-size: 1.2em;
+    font-size: 1em;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    margin: 0.5rem 0.4rem;
 }
 
 a.navigateLinkActive:hover {
@@ -153,7 +155,6 @@ ul.menuUserShow {
     color: var(--white-color);
     text-decoration: none;
 }
-
 
 @media only screen and (max-width: 1279px) and (min-width: 280px) {
 
