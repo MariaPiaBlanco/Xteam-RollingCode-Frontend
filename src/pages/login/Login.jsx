@@ -10,15 +10,15 @@ const Login = () => {
 
   window.addEventListener("load", ()=>{
       localStorage.getItem("token") && navigate("/");
-      localStorage.removeItem("token")
-      localStorage.removeItem("admin")
+      
+      
   })
 
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
       await axios
-        .post(`http://localhost:8080/users/login`, {
+        .post(`${process.env.REACT_APP_URL_BASE}/users/login`, {
           email: email,
           password: password,
         })

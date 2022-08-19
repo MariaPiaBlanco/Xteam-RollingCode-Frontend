@@ -24,7 +24,7 @@ const AddGamesModalComp = () => {
     } else {
       try {
         const validation = tokenInvalid();
-        axios.post("http://localhost:8080/games",{
+        axios.post(`${process.env.REACT_APP_URL_BASE}/games`,{
             title: title,
             details: details,
             image: [image1, image2, image3],
@@ -43,7 +43,7 @@ const AddGamesModalComp = () => {
   };
 
   const getAllCategories = async () => {
-    const getCategories = await axios("http://localhost:8080/category")
+    const getCategories = await axios(`${process.env.REACT_APP_URL_BASE}/category`)
     setCategories(getCategories.data.category);
   } 
   

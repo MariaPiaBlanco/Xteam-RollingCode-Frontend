@@ -9,7 +9,7 @@ const AdminCategoryTable = ({categorie}) => {
   
   const deleteCategory = () => {
     try {
-      axios.delete(`http://localhost:8080/category/${_id}`)
+      axios.delete(`${process.env.REACT_APP_URL_BASE}/category/${_id}`)
       window.location.reload()
     } catch (error) {
       console.log(error)

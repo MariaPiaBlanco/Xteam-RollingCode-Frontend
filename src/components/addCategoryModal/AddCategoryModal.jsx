@@ -10,7 +10,7 @@ const AddCategoryModal = () => {
 
   const addCategory = () => {
     try {
-      axios.post(`http://localhost:8080/category`,{
+      axios.post(`${process.env.REACT_APP_URL_BASE}/category`,{
         type: category
       } , {
         headers: {

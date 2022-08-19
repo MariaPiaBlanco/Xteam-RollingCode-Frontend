@@ -9,7 +9,7 @@ const AdminUserTable = ({user}) => {
   const bannUser = () => {
     try {
       console.log(_id);
-      axios.put(`http://localhost:8080/users/${_id}`, {
+      axios.put(`${process.env.REACT_APP_URL_BASE}/users/${_id}`, {
         fullname: fullname,
         email: email,
         password: password,
@@ -27,7 +27,7 @@ const AdminUserTable = ({user}) => {
   }
   const activeUser = () => {
     try {
-      axios.put(`http://localhost:8080/users/${_id}`, {
+      axios.put(`${process.env.REACT_APP_URL_BASE}/users/${_id}`, {
         fullname: fullname,
         email: email,
         password: password,

@@ -11,7 +11,7 @@ const AdminGamesTable = ({game}) => {
   const deleteGame = async () => {
     console.log(_id)
     try {
-      await axios.delete(`http://localhost:8080/games/${_id}`,{
+      await axios.delete(`${process.env.REACT_APP_URL_BASE}/games/${_id}`,{
         headers: {
           "access-token": token,
         },
@@ -25,7 +25,7 @@ const AdminGamesTable = ({game}) => {
   const addFavoriteGame = () => {
     console.log(_id);
     try{
-      axios.put(`http://localhost:8080/games/${_id}`,{
+      axios.put(`${process.env.REACT_APP_URL_BASE}/games/${_id}`,{
           title: title,
           details: details,
           image: image,
@@ -44,7 +44,7 @@ const AdminGamesTable = ({game}) => {
 
   const removeFavoriteGame = () => {
     try{
-      axios.put(`http://localhost:8080/games/${_id}`,{
+      axios.put(`${process.env.REACT_APP_URL_BASE}/games/${_id}`,{
           title: title,
           details: details,
           image: image,
