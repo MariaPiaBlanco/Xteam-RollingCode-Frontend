@@ -8,12 +8,6 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  window.addEventListener("load", ()=>{
-      localStorage.getItem("token") && navigate("/");
-      
-      
-  })
-
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
