@@ -10,19 +10,23 @@ const Login = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    try {
-      await axios
-        .post(`${process.env.REACT_APP_URL_BASE}/users/login`, {
-          email: email,
-          password: password,
-        })
-        .then((response) => {
-          localStorage.setItem("token", response.data.token)
-          localStorage.setItem("admin", response.data.admin)
-          navigate("/loginsucces")
-        });
-    } catch (error) {
-      alert(error.response.data.msg);
+    if(email === undefined || password === undefined){
+      alert("Todos los campos son requeridos")
+    } else {
+      try {
+        await axios
+          .post(`${process.env.REACT_APP_URL_BASE}/users/login`, {
+            email: email,
+            password: password,
+          })
+          .then((response) => {
+            localStorage.setItem("token", response.data.token)
+            localStorage.setItem("admin", response.data.admin)
+            navigate("/loginsucces")
+          });
+      } catch (error) {
+        alert(error.response.data.msg);
+      }
     }
   };
 
