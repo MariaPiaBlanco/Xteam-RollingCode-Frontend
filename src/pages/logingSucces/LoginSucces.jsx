@@ -4,6 +4,7 @@ import logoImg from "../../assets/xteam.png";
 import logoImg2 from "../../assets/images/assassins.png";
 import 'animate.css';
 import { useNavigate } from 'react-router-dom';
+import xteam from '../../assets/xteam.png'
 
 const LoginSucces = () => {
   const { bgBody, fontStyle } = styles
@@ -16,10 +17,7 @@ const LoginSucces = () => {
   return (
     <div className={`${bgBody} container-fluid`}>
       <div className="row justify-content-center animate__animated animate__zoomIn">
-        <div className="col-12 text-center m-5">
-          <img className={`col-1`} src={logoImg} alt="" />
-        </div>
-        <img className={`col-3 pb-5 mb-5 `} src={logoImg2} alt="" />
+        <img className={`col-3 pb-5 mb-5 `} src={xteam} alt="" />
         <h2 className={`text-center mb-5 display-5 fw-bold ${fontStyle}`}>Logueado con exito</h2>
       </div>
     </div>

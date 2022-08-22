@@ -11,9 +11,11 @@
 }
 
 .bgBody{
-  background-color: var(--primary-color);
+  background-color: var(--dark-color);
 }
 
 .fontStyle{
   font-family: 'Montserrat-Regular';
+  color: var(--primary-color)
 }
+
