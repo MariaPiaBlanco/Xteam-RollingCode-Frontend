@@ -15,7 +15,7 @@ import { faCircleQuestion, faCartShopping, faUser } from "@fortawesome/free-soli
 
 import axios from "axios";
 
-function NavScrollExample() {
+function NavbarCustom() {
   const {
     containerNavbarTop,
     navigateLink,
@@ -80,12 +80,28 @@ function NavScrollExample() {
 
           <Col xs="auto" className="m-2">
             <DropdownButton id="dropdown-item-button m-1" title="Login" align="end">
-              <Dropdown.Item as="button">
-              {!isLogged && <NavLink as="button" className={`dropdown-item ${btn_sesion}`} to={"/login"} onClick={() => verifyLogin()}>Iniciar sesión</NavLink>}                
-              </Dropdown.Item>
-              <Dropdown.Item as="button">
-              {isLogged && <NavLink as="button" className={`dropdown-item ${btn_sesion}`} to={"/login"} onClick={() => verifyLogin(), localStorage.removeItem("token")}>Cerrar sesión</NavLink>} 
-              </Dropdown.Item>
+              {!isLogged && 
+                <Dropdown.Item as="button" className={`dropdown-item ${btn_sesion}`}
+                  onClick={() => {
+                    verifyLogin()
+                    navigate("/login",{replace:true})
+                  }}>
+                  {/* {!isLogged && <NavLink as="button" className={`dropdown-item ${btn_sesion}`} to={"/login"} onClick={() => verifyLogin()}>Iniciar sesión</NavLink>}                 */}
+                  Iniciar sesión
+                </Dropdown.Item>
+              }
+
+              {isLogged &&
+                <Dropdown.Item as="button" className={`dropdown-item ${btn_sesion}`}
+                onClick={() => {
+                  localStorage.removeItem("token")
+                  verifyLogin()
+                  navigate("/login", { replace: true })
+                  }}>
+                  {/* {isLogged && <NavLink as="button" className={`dropdown-item ${btn_sesion}`} to={"/login"} onClick={() => verifyLogin(), localStorage.removeItem("token")}>Cerrar sesión</NavLink>}  */}
+                  Cerrar sesión
+                </Dropdown.Item>
+              }
             
             
 
@@ -98,4 +114,4 @@ function NavScrollExample() {
   );
 }
 
-export default NavScrollExample;
+export {NavbarCustom};

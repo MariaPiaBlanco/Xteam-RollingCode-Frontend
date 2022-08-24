@@ -22,6 +22,7 @@ const Login = () => {
           .then((response) => {
             localStorage.setItem("token", response.data.token)
             localStorage.setItem("admin", response.data.admin)
+            window.location.reload()
             navigate("/loginsucces")
           });
       } catch (error) {
