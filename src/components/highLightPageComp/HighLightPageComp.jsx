@@ -4,7 +4,7 @@ import styles  from "./highLightPageComp.module.css"
 import {Comment} from '../comment/Comment';
 import axios from 'axios';
 import { tokenInvalid } from '../../utils/ValidationToken';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const HighLightPageComp = ( {gameData,idGame} ) => {
@@ -15,7 +15,7 @@ const HighLightPageComp = ( {gameData,idGame} ) => {
   const [errorMessageText, setErrorMessageText] = useState('')
   const [errorlogin, setErrorlogin] = useState(false)
   const btnMensage = "Añadir al carrito";
-
+const navigate = useNavigate()
   const getData = async () =>{ 
     await axios.get(`${process.env.REACT_APP_URL_BASE}/comments/game/${idGame}`)
       .then((response)=>{
@@ -79,7 +79,7 @@ const HighLightPageComp = ( {gameData,idGame} ) => {
           <p>{details}</p>
           <div className="d-flex justify-content-center">
             <div className="w-25">
-              <Link to='/error'>  <SubmitButton mensage={btnMensage}/></Link>
+            <SubmitButton mensage={btnMensage} handlerClick={()=>navigate('/error')}/>
             </div>
           </div>
         </div>
