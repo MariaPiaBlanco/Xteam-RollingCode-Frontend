@@ -2,6 +2,9 @@ import React from "react"
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/Logo.png";
 import styles from "./footer.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuestionCircle, faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import { faTwitch, faDiscord} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   const { footerBgDark, footerBgDarkLight, inputBorder, inputBg, iconInputBg, link_footer, shadow} = styles;
@@ -19,12 +22,10 @@ const Footer = () => {
               <Link className={link_footer} to="/error">Favorito</Link>
             </div>
             <div className="col-4 d-none d-sm-block ">
-              <form className="d-flex justify-content-center align-items-center h-100" role="search">
-                <div className="input-group mb-3 p-2 w-50">
-                  <input autoComplete="off" type="text" className={`form-control ${inputBorder} ${inputBg}`} placeholder="Busqueda" aria-label="password" aria-describedby="basic-addon1"/>
-                  <button className={`input-group-text ${inputBorder} ${iconInputBg}`} id="basic-addon1"><box-icon name="search" color="#ffffff" ></box-icon></button>
-                </div>
-              </form>
+              <Link to='/error'><FontAwesomeIcon icon={faTwitch} className={`col-12 fa-2xl`}></FontAwesomeIcon></Link>
+              <Link to='/error'><FontAwesomeIcon icon={faDiscord} className={`col-12 fa-2xl`}></FontAwesomeIcon></Link>
+              <Link to='/contact'><FontAwesomeIcon icon={faEnvelope} className={`col-12 fa-2xl `}></FontAwesomeIcon></Link>
+              <Link to='/error'><FontAwesomeIcon icon={faQuestionCircle} className={`col-12 fa-2xl `}></FontAwesomeIcon></Link>
             </div>
           </div>
         </div>

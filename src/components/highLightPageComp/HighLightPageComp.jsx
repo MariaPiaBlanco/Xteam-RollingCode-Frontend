@@ -79,7 +79,7 @@ const HighLightPageComp = ( {gameData,idGame} ) => {
           <p>{details}</p>
           <div className="d-flex justify-content-center">
             <div className="w-25">
-              <SubmitButton mensage={btnMensage}/>
+              <Link to='/error'>  <SubmitButton mensage={btnMensage}/></Link>
             </div>
           </div>
         </div>
