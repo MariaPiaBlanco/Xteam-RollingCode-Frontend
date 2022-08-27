@@ -87,6 +87,10 @@ img.logoTopImg {
     box-shadow: 0px 3px 6px #00000029;
 }
 
+.navContainer{
+    display: flex;
+    flex-direction: column;
+}
 input.fieldInputSearch,
 input.fieldInputSearch:focus {
     border-radius: 5px 0px 0px 5px;
@@ -155,7 +159,34 @@ ul.menuUserShow {
     color: var(--white-color);
     text-decoration: none;
 }
-
+.searchBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #272a31;
+}
+.searchInput{
+    background-color: #272a31;
+    width: 95%;
+    color: #fff;
+    padding: 10px;
+    outline: #272a31 none 0px;
+    border: none;
+}
+.results{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.result{
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+.result:hover{
+    color: #5E2DF0;
+    text-decoration: underline;
+}
 @media only screen and (max-width: 1279px) and (min-width: 280px) {
 
     .containerNavbarLogo {
