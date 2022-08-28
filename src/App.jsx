@@ -15,10 +15,11 @@ import UpdateCategorie from "./pages/updateCategorie/UpdateCategorie.jsx";
 import UpdateGame from "./pages/updateGame/UpdateGame.jsx";
 import LoginSucces from "./pages/logingSucces/LoginSucces";
 import RegisterSucces from "./pages/registerSucces/RegisterSucces.jsx";
+import { tokenInvalid } from "./utils/ValidationToken.js";
 
 
 const App = () => {
-  const token = localStorage.getItem("token");
+  const token = tokenInvalid();
   return (
     <>
       <BrowserRouter>
@@ -28,11 +29,11 @@ const App = () => {
           <Route path="/highlightpage/:id" element={<HighLightPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={!token ? <Register /> : <HomePage />} />
+          <Route path="/register" element={!token.invalidToken ? <Register /> : <HomePage />} />
           <Route path="/error" element={<ErrorPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-          <Route path="/admin/updateCategorie/:id" element={<UpdateCategorie />} />
-          <Route path="/admin/updateGame/:id" element={<UpdateGame />} />
+          <Route path="/admin" element={(token.decode?.admin) ? <AdminPage /> : <ErrorPage />} />
+          <Route path="/admin/updateCategorie/:id" element={(token.decode?.admin) ?<UpdateCategorie /> : <ErrorPage />} />
+          <Route path="/admin/updateGame/:id" element={(token.decode?.admin) ?<UpdateGame />: <ErrorPage />} />
           <Route path="/loginsucces" element={<LoginSucces />} />
           <Route path="/registersucces" element={<RegisterSucces />} />
           <Route path="/" element={<HomePage />} />
