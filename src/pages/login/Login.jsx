@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import LoginForm from "../../components/loginForm/LoginForm";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { tokenInvalid } from "../../utils/ValidationToken";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -30,6 +32,13 @@ const Login = () => {
       }
     }
   };
+
+  useEffect(()=>{
+    const token = tokenInvalid()
+    if(!token.invalidToken){
+      navigate('/')
+    }
+  },[])
 
   return (
     <LoginForm

@@ -4,7 +4,7 @@ export const tokenInvalid = ()=>{
     let response = {}
     let token = localStorage.getItem('token');
     if(!token){
-      response = {invalidToken: true, msg:"Debes iniciar sesión para publicar un comentario"}
+      response = {invalidToken: true, msg:"Debes iniciar sesión para publicar un comentario",decode: null}
       return response;
     }
     let decodedToken = jwtDecode(token);
@@ -17,10 +17,10 @@ export const tokenInvalid = ()=>{
     // console.log('Comparison')
     // console.log(dateToken < dateNow)
     if(dateToken > dateNow){
-      response = {invalidToken: false, idUser: decodedToken.id, token}
+      response = {invalidToken: false, idUser: decodedToken.id, token, decode: decodedToken}
       return response;
     } else{
-      response = {invalidToken: true, msg:"Su sesión ha expirado. Por favor inicie sesión nuevamente para hacer un comentario"}
+      response = {invalidToken: true, msg:"Su sesión ha expirado. Por favor inicie sesión nuevamente para hacer un comentario",decode: null}
       return response;
     }
   }

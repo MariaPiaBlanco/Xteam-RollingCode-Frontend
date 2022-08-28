@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import SubmitButton from '../submitButton/SubmitButton';
@@ -8,7 +9,11 @@ const LoginForm = ({ handleLogin, email, password }) => {
   const btnMensage = "Ingresar"  
 
   return (
-    <div className={`container-fluid`}>
+    <motion.div 
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ delay: 0.1 }}
+    className={`container-fluid`}>
       <div className=" row justify-content-center align-items-center vh-100" >
         <form className={`col-10 col-sm-6 col-lg-3 col-md-4 col-xl-3 col-xxl-2 py-5 px-3 rounded ${bgLogin} ${border} d-flex flex-column align-items-center`} onSubmit={handleLogin} >
           <h2 className={`text-center fs-4 mb-5 pb-4 mt-3 ${fontLogin}`}>INICIAR SESION</h2>
@@ -25,7 +30,7 @@ const LoginForm = ({ handleLogin, email, password }) => {
           <Link to={"/recoverPass"} className={`text-center text-decoration-none ${fontPass}`}>¿Olvidaste tu contraseña?</Link> 
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
