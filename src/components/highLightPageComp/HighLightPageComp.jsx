@@ -5,7 +5,7 @@ import {Comment} from '../comment/Comment';
 import axios from 'axios';
 import { tokenInvalid } from '../../utils/ValidationToken';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { motion } from 'framer-motion';
 
 const HighLightPageComp = ( {gameData,idGame} ) => {
   const {title, image, details } = gameData;
@@ -16,6 +16,7 @@ const HighLightPageComp = ( {gameData,idGame} ) => {
   const [errorlogin, setErrorlogin] = useState(false)
   const btnMensage = "Añadir al carrito";
 const navigate = useNavigate()
+const imageDefault = 'https://i.gifer.com/Up8y.gif'
   const getData = async () =>{ 
     await axios.get(`${process.env.REACT_APP_URL_BASE}/comments/game/${idGame}`)
       .then((response)=>{
@@ -71,39 +72,76 @@ const navigate = useNavigate()
   }
 
   return (
-    <section className="container-fluid">
+    <motion.section
+      // initial={{ opacity: 0 }}
+      // animate={{ opacity: 1 }}
+      // transition={{ delay: 0.8}}
+      className="container-fluid"
+    >
       <div className="row">
-        {image && <img src={image[0]} alt="{title}" className="col-lg-5 rounded-3 m-4 img-fluid" />}
-        <div className='col-lg-5 bg-transparent text-center m-4'>
+        {image && (
+          <img
+            src={image && image[0]? image[0] : imageDefault}
+            alt="{title}"
+            className="col-lg-5 rounded-3 m-4 img-fluid"
+          />
+        )}
+        <div className="col-lg-5 bg-transparent text-center m-4">
           <h2 className="my-5 display-4">{title}</h2>
           <p>{details}</p>
           <div className="d-flex justify-content-center">
             <div className="w-25">
-            <SubmitButton mensage={btnMensage} handlerClick={()=>navigate('/error')}/>
+              <SubmitButton
+                mensage={btnMensage}
+                handlerClick={() => navigate("/error")}
+              />
             </div>
           </div>
         </div>
-        {image && <img src={image[1]} alt="" className={`col-lg-5 m-4 ${imageSize}`} />}
-        {image && <img src={image[2]} alt="" className={`col-lg-5 m-4 ${imageSize}`} />}
-        <div className='mb-3 m-2 col-3 '>
-          <button className= {`${btnSubmit} `}>
-          <Link to='/' className= {`${link}`}><box-icon name='chevron-left-square' color="#ffffff"></box-icon> Volver</Link>
-          </button>  
+        {image && (
+          <img src={image && image[1]? image[1] : imageDefault} alt="" className={`col-lg-5 m-4 ${imageSize}`} />
+        )}
+        {image && (
+          <img src={image && image[2] ? image[2] : imageDefault} alt="" className={`col-lg-5 m-4 ${imageSize}`} />
+        )}
+        <div className="mb-3 m-2 col-3 ">
+          <button className={`${btnSubmit} `}>
+            <Link to="/" className={`${link}`}>
+              <box-icon name="chevron-left-square" color="#ffffff"></box-icon>{" "}
+              Volver
+            </Link>
+          </button>
         </div>
         <div className="col-lg-12 d-flex flex-column align-items-center">
           <h2>Ingresa un comentario</h2>
-          <textarea name="" id="" cols="30" rows="3" maxLength={250} className={`w-75 rounded-3 ${inputBg} ${inputBorder}`} onChange={(e)=> {setErrorMessageText(''); setCommentField(e.target.value)}  }></textarea>
+          <textarea
+            name=""
+            id=""
+            cols="30"
+            rows="3"
+            maxLength={250}
+            className={`w-75 rounded-3 ${inputBg} ${inputBorder}`}
+            onChange={(e) => {
+              setErrorMessageText("");
+              setCommentField(e.target.value);
+            }}
+          ></textarea>
           {errorlogin && <p className={errorMessage}>{errorMessageText}</p>}
           <div className="w-25">
-            <SubmitButton mensage={"Publicar comentario"} handlerClick={saveComment}/>
+            <SubmitButton
+              mensage={"Publicar comentario"}
+              handlerClick={saveComment}
+            />
           </div>
-          { Array.isArray(comments) ? comments?.map( (detail) => <Comment detail={detail} key={detail._id}></Comment>) : null}
+          {Array.isArray(comments)
+            ? comments?.map((detail) => (
+                <Comment detail={detail} key={detail._id}></Comment>
+              ))
+            : null}
         </div>
-
       </div>
-      
-    </section>
-  )
+    </motion.section>
+  );
 }
 
 export default HighLightPageComp

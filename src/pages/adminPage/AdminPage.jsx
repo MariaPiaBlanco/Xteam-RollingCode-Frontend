@@ -8,6 +8,7 @@ import SubmitButton from "../../components/submitButton/SubmitButton";
 import styles from "./adminPage.module.css"
 import AdminGamesTable from "../../components/adminGamesTable/adminGamesTable";
 import AdminCategoryTable from "../../components/adminCategoryTable/AdminCategoryTable";
+import { motion } from "framer-motion";
 
 const AdminPage = () => {
   const [users, setUsers] = useState([]);
@@ -56,38 +57,68 @@ const AdminPage = () => {
   }, [])
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 0.1 }}
+    >
       <section className="m-5">
         <div className="container-fluid">
           <div className="row justify-content-around">
-            <h2 className="col-12 col-lg-6 text-center display-4">Tabla de usuarios</h2>
+            <h2 className="col-12 col-lg-6 text-center display-4">
+              Tabla de usuarios
+            </h2>
             <div className="col-12 col-lg-6">
-              <SubmitButton  mensage={"Agregar usuario"} dataBsToggle="modal" dataBsTarget="#addUserModal" />
+              <SubmitButton
+                mensage={"Agregar usuario"}
+                dataBsToggle="modal"
+                dataBsTarget="#addUserModal"
+              />
               <AddUserModalComp />
             </div>
           </div>
         </div>
-        <table className={`table table-dark table-hover table-responsive ${productsTable}`}>
+        <table
+          className={`table table-dark table-hover table-responsive ${productsTable}`}
+        >
           <thead>
             <tr>
-              <th scope="col" className="p-3">Nombre</th>
-              <th scope="col" className="p-3">Email</th>
-              <th scope="col" className="p-3">Admin</th>
-              <th scope="col" className="p-3">Estado</th>
-              <th scope="col" className="p-3">Banear</th>
+              <th scope="col" className="p-3">
+                Nombre
+              </th>
+              <th scope="col" className="p-3">
+                Email
+              </th>
+              <th scope="col" className="p-3">
+                Admin
+              </th>
+              <th scope="col" className="p-3">
+                Estado
+              </th>
+              <th scope="col" className="p-3">
+                Banear
+              </th>
             </tr>
           </thead>
           <tbody>
-            {users?.map((user) => <AdminUserTable user={user} key={user._id} />)}
+            {users?.map((user) => (
+              <AdminUserTable user={user} key={user._id} />
+            ))}
           </tbody>
         </table>
       </section>
       <section className="m-5">
         <div className="container-fluid">
           <div className="row justify-content-around">
-            <h2 className="col-12 col-lg-6 text-center display-4">Tabla de Juegos</h2>
+            <h2 className="col-12 col-lg-6 text-center display-4">
+              Tabla de Juegos
+            </h2>
             <div className="col-12 col-lg-6">
-              <SubmitButton  mensage={"Agregar juego"} dataBsToggle="modal" dataBsTarget="#addGameModal" />
+              <SubmitButton
+                mensage={"Agregar juego"}
+                dataBsToggle="modal"
+                dataBsTarget="#addGameModal"
+              />
               <AddGamesModalComp />
             </div>
           </div>
@@ -104,16 +135,24 @@ const AdminPage = () => {
             </tr>
           </thead>
           <tbody>
-            {games?.map((game)=> <AdminGamesTable game={game} key={game._id}/>)} 
+            {games?.map((game) => (
+              <AdminGamesTable game={game} key={game._id} />
+            ))}
           </tbody>
         </table>
-      </section>    
+      </section>
       <section className="m-5">
         <div className="container-fluid">
           <div className="row justify-content-around">
-            <h2 className="col-12 col-lg-6 text-center display-4">Tabla de Categorias</h2>
+            <h2 className="col-12 col-lg-6 text-center display-4">
+              Tabla de Categorias
+            </h2>
             <div className="col-12 col-lg-6">
-              <SubmitButton  mensage={"Agregar categoria"} dataBsToggle="modal" dataBsTarget="#addCategoryModal" />
+              <SubmitButton
+                mensage={"Agregar categoria"}
+                dataBsToggle="modal"
+                dataBsTarget="#addCategoryModal"
+              />
               <AddCategoryModal />
             </div>
           </div>
@@ -127,12 +166,14 @@ const AdminPage = () => {
             </tr>
           </thead>
           <tbody>
-            {categories?.map((categorie)=> <AdminCategoryTable categorie={categorie} key={categorie._id}/>)} 
+            {categories?.map((categorie) => (
+              <AdminCategoryTable categorie={categorie} key={categorie._id} />
+            ))}
           </tbody>
         </table>
-      </section>    
-    </div>  
-  )
+      </section>
+    </motion.div>
+  );
 }
 
 export default AdminPage

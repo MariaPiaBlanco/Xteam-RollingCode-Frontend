@@ -25,10 +25,9 @@ const App = () => {
         <NavbarCustom />
         {/* <SocialContact /> */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
           <Route path="/highlightpage/:id" element={<HighLightPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/login" element={!token ? <Login /> : <HomePage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={!token ? <Register /> : <HomePage />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/admin" element={<AdminPage />} />
@@ -36,6 +35,7 @@ const App = () => {
           <Route path="/admin/updateGame/:id" element={<UpdateGame />} />
           <Route path="/loginsucces" element={<LoginSucces />} />
           <Route path="/registersucces" element={<RegisterSucces />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

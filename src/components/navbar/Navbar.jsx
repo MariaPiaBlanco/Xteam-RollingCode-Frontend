@@ -9,6 +9,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Col from 'react-bootstrap/Col';
 import axios from "axios";
+import { motion } from 'framer-motion';
 
 function NavbarCustom() {
   const {
@@ -106,18 +107,24 @@ function NavbarCustom() {
 
           <Col xs="auto" className="m-2">
             <div className={searchBox}>
-              <input className={searchInput} type="text" placeholder="Buscar" 
-              value={searchFilter}
-              onChange={(e)=> { 
-                const userInput = (e.target.value).toLowerCase().trim()
-                setSearchFilter(userInput)
-                const games = [...gamesFor]
-                const filter = [...games.filter( game => game.title.toLowerCase().trim().includes(userInput) )]
-                setGamesFiltered(userInput!=""? [...filter]: [])
-              }
-              } 
+              <input
+                className={searchInput}
+                type="text"
+                placeholder="Buscar"
+                value={searchFilter}
+                onChange={(e) => {
+                  const userInput = e.target.value.toLowerCase().trim();
+                  setSearchFilter(userInput);
+                  const games = [...gamesFor];
+                  const filter = [
+                    ...games.filter((game) =>
+                      game.title.toLowerCase().trim().includes(userInput)
+                    ),
+                  ];
+                  setGamesFiltered(userInput != "" ? [...filter] : []);
+                }}
               />
-              <box-icon name='search' color="#ffffff"></box-icon>
+              <box-icon name="search" color="#ffffff"></box-icon>
             </div>
           </Col>
 
@@ -147,7 +154,7 @@ function NavbarCustom() {
                   onClick={() => {
                     localStorage.removeItem("token");
                     verifyLogin();
-                    navigate("/login", { replace: true });
+                    navigate("/", { replace: true });
                   }}
                 >
                   Cerrar sesión
@@ -157,21 +164,31 @@ function NavbarCustom() {
           </Col>
         </Navbar.Collapse>
       </Container>
-      {
-        gamesFiltered && 
-        <section className={results}>
-          {gamesFiltered.map( game => {
-          return <p className={`${result}`}
-          onClick={()=>{
-            setSearchFilter('')
-            setGamesFiltered([])
-            navigate(`/highlightpage/${game._id}`)
-          }} 
-          key={game._id}>{game.title}</p> 
+      {gamesFiltered && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1 }}
+          className={results}
+        >
+          {gamesFiltered.map((game) => {
+            return (
+              <p
+                className={`${result}`}
+                onClick={() => {
+                  setSearchFilter("");
+                  setGamesFiltered([]);
+                  navigate(`/highlightpage/${game._id}`);
+                }}
+                key={game._id}
+              >
+                {game.title}
+              </p>
+            );
           })}
-        </section>}
+        </motion.div>
+      )}
     </Navbar>
-
   );
 }
 
