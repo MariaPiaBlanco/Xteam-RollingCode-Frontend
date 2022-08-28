@@ -35,7 +35,8 @@ const AddUserModalComp = () => {
               fullname: fullname,
               email: email,
               password: password,
-              admin: admin
+              admin: admin,
+              banned: false
             })
             // window.location.reload()
       } catch (error) {
