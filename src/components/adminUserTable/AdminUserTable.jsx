@@ -20,7 +20,9 @@ const AdminUserTable = ({user}) => {
           "access-token": token,
         }
       })
-      window.location.reload()
+      .then(()=>{
+        window.location.reload()
+      })
     } catch (error) {
       console.log(error)
     }
@@ -38,7 +40,9 @@ const AdminUserTable = ({user}) => {
           "access-token": token,
         }
       })
-      window.location.reload()
+      .then(()=>{
+        window.location.reload()
+      })
     } catch (error) {
       console.log(error)
     }

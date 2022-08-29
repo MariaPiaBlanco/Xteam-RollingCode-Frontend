@@ -16,7 +16,9 @@ const AdminGamesTable = ({game}) => {
           "access-token": token,
         },
       })
-      window.location.reload()
+      .then(()=>{
+        window.location.reload()
+      })
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +37,9 @@ const AdminGamesTable = ({game}) => {
           "access-token": token 
         }
       })
-      window.location.reload()
+      .then(()=>{
+        window.location.reload()
+      })
     } catch(error){
       console.log(error)
     }
@@ -54,7 +58,9 @@ const AdminGamesTable = ({game}) => {
           "access-token": token 
         }
       })
-      window.location.reload()
+      .then(()=>{
+        window.location.reload()
+      })
     } catch(error){
       console.log(error)
     }

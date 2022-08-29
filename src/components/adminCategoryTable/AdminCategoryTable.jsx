@@ -11,7 +11,9 @@ const AdminCategoryTable = ({categorie}) => {
     e.preventDefault();
     try {
       axios.delete(`${process.env.REACT_APP_URL_BASE}/category/${_id}`)
-      window.location.reload()
+      .then(()=>{
+        window.location.reload()
+      })
     } catch (error) {
       console.log(error)
     }
