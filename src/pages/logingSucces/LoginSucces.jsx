@@ -1,7 +1,5 @@
 import React from 'react'
 import styles from "./loginSucces.module.css"
-import logoImg from "../../assets/xteam.png";
-import logoImg2 from "../../assets/images/assassins.png";
 import 'animate.css';
 import { useNavigate } from 'react-router-dom';
 import xteam from '../../assets/xteam.png'

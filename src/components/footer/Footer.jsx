@@ -7,7 +7,7 @@ import { faQuestionCircle, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import { faTwitch, faDiscord} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
-  const { footerBgDark, footerBgDarkLight, inputBorder, inputBg, iconInputBg, link_footer, shadow} = styles;
+  const { footerBgDark, footerBgDarkLight,link_footer, shadow} = styles;
   return (
     <section className="containter-fluid">
       <div className="row m-0">
