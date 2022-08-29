@@ -23,12 +23,10 @@ const imageDefault = 'https://i.gifer.com/Up8y.gif'
         setComments(response.data)
       })
     } 
+    
     useEffect(() => {
       getData();
-  }, [])
-  
-
-  
+    })
 
   const saveComment = ()=>{
     // const token = localStorage.getItem('token')
@@ -73,9 +71,6 @@ const imageDefault = 'https://i.gifer.com/Up8y.gif'
 
   return (
     <motion.section
-      // initial={{ opacity: 0 }}
-      // animate={{ opacity: 1 }}
-      // transition={{ delay: 0.8}}
       className="container-fluid"
     >
       <div className="row">

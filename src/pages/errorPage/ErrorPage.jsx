@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './errorPage.module.css';
 import imgAstronaut from "../../assets/images/astronaut.svg";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 
@@ -13,7 +13,6 @@ const ErrorPage = () => {
         imgAstronautAnimation,
         boxAstronaut,
     } = styles;
-    const navigate = useNavigate()
     return (
       <motion.div
         initial={{ opacity: 0.5}}

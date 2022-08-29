@@ -5,7 +5,6 @@ import Login from "./pages/login/Login.jsx";
 import Footer from "./components/footer/Footer";
 import HighLightPage from "./pages/highLightPage/HighLightPage";
 import ContactPage from "./pages/contactPage/ContactPage";
-import SocialContact from "./components/contact/Contact";
 import ErrorPage from "./pages/errorPage/ErrorPage.jsx";
 import AdminPage from "./pages/adminPage/AdminPage.jsx";
 import HomePage from "./pages/homePage/HomePage.jsx";
@@ -24,7 +23,6 @@ const App = () => {
     <>
       <BrowserRouter>
         <NavbarCustom />
-        {/* <SocialContact /> */}
         <Routes>
           <Route path="/highlightpage/:id" element={<HighLightPage />} />
           <Route path="/contact" element={<ContactPage />} />

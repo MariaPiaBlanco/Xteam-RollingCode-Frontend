@@ -125,7 +125,7 @@ function NavbarCustom() {
                       game.title.toLowerCase().trim().includes(userInput)
                     ),
                   ];
-                  setGamesFiltered(userInput != "" ? [...filter] : []);
+                  setGamesFiltered(userInput !== "" ? [...filter] : []);
                 }}
               />
               <box-icon name="search" color="#ffffff"></box-icon>
