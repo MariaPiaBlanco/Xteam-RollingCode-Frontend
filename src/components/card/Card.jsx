@@ -10,7 +10,6 @@ const Card = ({ game }) => {
   const btnMensage1 = "Ver detalle del producto";
   const btnMensage2 = "En el carrito";
   const imageDefault = 'https://i.gifer.com/ZjtR.gif'
-  console.log(`Title: ${title} | cover: ${image[0]} `)
   return (
     <div className={`card col-lg-3 col-sm-6 mx-1 my-3 py-2 ${productGame}`} onClick={() => navigate(`/highlightpage/${_id}`)} >
       <img

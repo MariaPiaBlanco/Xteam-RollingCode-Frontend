@@ -28,19 +28,19 @@ const Contact = () => {
       <h4  className={`d-flex justify-content-center `}>Te responderemos lo mas rapido posible!!</h4>
       <div className={`d-flex justify-content-center row`} >
           <div className={`mb-3 m-2 col-6 `}>
-            <label for="exampleFormControlInput2" className={`form-label ${styles.label}`}>
+            <label htmlFor="exampleFormControlInput2" className={`form-label ${styles.label}`}>
               Nombre Completo
              <box-icon name='user' color="#ffffff" className={` `}></box-icon></label>
               <input type="nombreCompleto" className={`form-control ${styles.input}`} id="nombreCompleto" name="nombreCompleto" placeholder="Nombre completo"
               required minLength={3} maxLength={50}/>
           </div>
           <div className={`mb-3 m-2 col-6 `}>
-            <label for="exampleFormControlInput1" className={`form-label ${styles.label}`}>E-mail
+            <label htmlFor="exampleFormControlInput1" className={`form-label ${styles.label}`}>E-mail
             <box-icon name="envelope" color="#ffffff" ></box-icon> </label>
             <input type="email" className={`form-control ${styles.input}`} id="mail"  name= "mail" placeholder="ejemplo@ejemplo.com" required/>
           </div>
             <div className={`mb-3 m-2 col-6 `}>
-              <label for="exampleFormControlTextarea1" className={`form-label ${styles.label}`}>Message
+              <label htmlFor="exampleFormControlTextarea1" className={`form-label ${styles.label}`}>Message
               <box-icon name='message-detail' color="#ffffff"></box-icon></label>
               <textarea className={`form-control ${styles.input}`} id="mensaje" name="mensaje" rows="3" required placeholder='Por favor ingrese su mensaje' minLength={30}></textarea>
            </div>
