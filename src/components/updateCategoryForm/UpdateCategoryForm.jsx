@@ -11,11 +11,12 @@ const UpdateCategoryForm = ({idCategorie}) => {
   
   const updateCategorie = (e) => {
     e.preventDefault();
-    console.log(categorieType);
     axios.put(`${process.env.REACT_APP_URL_BASE}/category/${idCategorie}`, {
       type: categorieType
     })
-    navigate("/admin")
+    .then(()=>{
+      navigate("/admin")
+    })
   }
 
   return (

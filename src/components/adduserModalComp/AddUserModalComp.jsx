@@ -38,7 +38,9 @@ const AddUserModalComp = () => {
               admin: admin,
               banned: false
             })
-            window.location.reload()
+            .then(()=>{
+              window.location.reload()
+            })
       } catch (error) {
         console.log(error)
       }

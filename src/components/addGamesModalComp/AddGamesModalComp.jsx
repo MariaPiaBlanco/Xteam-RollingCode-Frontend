@@ -35,7 +35,9 @@ const AddGamesModalComp = () => {
               "access-token": validation.token,
             },
         })
-        window.location.reload()
+        .then(()=>{
+          window.location.reload()
+        })
       } catch (error) {
         console.log(error);
       }
@@ -86,7 +88,9 @@ const AddGamesModalComp = () => {
                 <div className="input-group mb-3">
                   <label className={`input-group-text ${inputBorder} ${iconInputBg}`} htmlFor="inputGroupSelect01"><box-icon name="lock" color="#ffffff" ></box-icon></label>
                   <select className={`form-select ${inputBg} ${inputBorder}`} id="inputGroupSelect01" defaultValue="Usuario" onChange={(e)=>setCategory(e.target.value)} >
-                    <option>Seleccione una categoria</option>
+                    <option>Seleccione una categoria
+                      
+                    </option>
                     {categories && categories.map(category=>{ 
                       return <option key={category._id} value={category._id}>{category.type}</option>
                     })}
