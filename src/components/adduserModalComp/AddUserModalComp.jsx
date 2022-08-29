@@ -38,7 +38,7 @@ const AddUserModalComp = () => {
               admin: admin,
               banned: false
             })
-            // window.location.reload()
+            window.location.reload()
       } catch (error) {
         console.log(error)
       }
@@ -74,6 +74,7 @@ const AddUserModalComp = () => {
                 <div className="input-group mb-3">
                   <label className={`input-group-text ${inputBorder} ${iconInputBg}`} htmlFor="inputGroupSelect01"><box-icon name="lock" color="#ffffff" ></box-icon></label>
                   <select className={`form-select ${inputBg} ${inputBorder}`} id="inputGroupSelect01" defaultValue="Usuario" onChange={(e)=>setAdmin(e.target.value)} >
+                    <option>Seleccione una condicion</option>
                     <option value={false}>Usuario</option>
                     <option value={true}>Administrador</option>
                   </select>

@@ -9,8 +9,10 @@ const UpdateCategoryForm = ({idCategorie}) => {
   const { bgLogin, border, inputBorder, inputBg, iconInputBg, fontLogin } = styles;
   const [categorieType, setCategorieType] = useState()
   
-  const updateCategorie = () => {
-    axios.put(`http://localhost:8080/category/${idCategorie}`, {
+  const updateCategorie = (e) => {
+    e.preventDefault();
+    console.log(categorieType);
+    axios.put(`${process.env.REACT_APP_URL_BASE}/category/${idCategorie}`, {
       type: categorieType
     })
     navigate("/admin")
