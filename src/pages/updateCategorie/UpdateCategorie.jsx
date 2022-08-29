@@ -4,6 +4,15 @@ import UpdateCategoryForm from '../../components/updateCategoryForm/UpdateCatego
 
 const UpdateCategorie = () => {
   const { id } = useParams();
+  // const getCategorie = async () => {
+  //   const categorieData = await axios(`${process.env.REACT_APP_URL_BASE}/category/${id}`);
+  //   console.log(categorieData)
+  // };
+
+  // useEffect(() => {
+  //   getCategorie();
+  // }, [])
+  
   
 
   return (

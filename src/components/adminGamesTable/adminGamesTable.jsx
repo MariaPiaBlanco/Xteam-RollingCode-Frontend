@@ -23,7 +23,6 @@ const AdminGamesTable = ({game}) => {
   }
 
   const addFavoriteGame = () => {
-    console.log(_id);
     try{
       axios.put(`${process.env.REACT_APP_URL_BASE}/games/${_id}`,{
           title: title,

@@ -7,7 +7,8 @@ const AdminCategoryTable = ({categorie}) => {
   const { type , _id } = categorie;
   const navigate = useNavigate();
   
-  const deleteCategory = () => {
+  const deleteCategory = (e) => {
+    e.preventDefault();
     try {
       axios.delete(`${process.env.REACT_APP_URL_BASE}/category/${_id}`)
       window.location.reload()

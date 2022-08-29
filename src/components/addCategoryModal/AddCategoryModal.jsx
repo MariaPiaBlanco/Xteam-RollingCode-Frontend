@@ -8,7 +8,8 @@ const AddCategoryModal = () => {
   const token = localStorage.getItem("token");
   const [category, setCategory] = useState();
 
-  const addCategory = () => {
+  const addCategory = (e) => {
+    e.preventDefault();
     try {
       axios.post(`${process.env.REACT_APP_URL_BASE}/category`,{
         type: category
@@ -16,6 +17,9 @@ const AddCategoryModal = () => {
         headers: {
           "access-token": token,
         }
+      })
+      .then(()=>{
+        window.location.reload();
       })
     } catch (error) {
       console.log(error)
@@ -35,7 +39,7 @@ const AddCategoryModal = () => {
                   <input autoComplete="off" type="text" className={`form-control  ${inputBorder} ${inputBg}`} placeholder="Categoria" aria-label="text" aria-describedby="basic-addon1" maxLength={50} onChange={(e)=>setCategory(e.target.value)} />
                 </div>
                 <div className="mb-3">
-                  <SubmitButton mensage={"Enviar"} /> 
+                  <SubmitButton mensage={"Enviar"} handlerClick={addCategory} /> 
                 </div>
               </form>
             </div>
