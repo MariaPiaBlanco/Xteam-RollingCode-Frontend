@@ -187,6 +187,9 @@ ul.menuUserShow {
     color: #5E2DF0;
     text-decoration: underline;
 }
+.btnUser{
+    background-color: #141C21;
+}
 @media only screen and (max-width: 1279px) and (min-width: 280px) {
 
     .containerNavbarLogo {

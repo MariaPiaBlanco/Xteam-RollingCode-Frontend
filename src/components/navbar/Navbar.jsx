@@ -23,13 +23,13 @@ function NavbarCustom() {
     navContainer,
     results,
     result,
+    btnUser,
   } = styles;
 
   const navigate = useNavigate();
   const [gamesFor, setGamesFor] = useState([])
   const [gamesFiltered, setGamesFiltered] = useState([])
   const [searchFilter, setSearchFilter] = useState("")
-  const admin = localStorage.getItem("admin")
   const [isLogged, setIsLogged] = useState(false)
   const [adminProfile, setAdminProfile] = useState(false)
 
@@ -133,10 +133,13 @@ function NavbarCustom() {
           </Col>
 
           <Col xs="auto" className="m-2">
-            <DropdownButton
+            <DropdownButton 
               id="dropdown-item-button m-1"
-              title="Login"
+              title="👾"
               align="end"
+              menuVariant="dark"
+              key="Secondary"
+              className={btnUser}
             >
               {!isLogged && (
                 <Dropdown.Item
@@ -165,6 +168,11 @@ function NavbarCustom() {
                 </Dropdown.Item>
               )}
             </DropdownButton>
+          </Col>
+          <Col xs="auto" className="m-2">
+                <button className='btn btn-dark' onClick={()=>navigate("/error")}>
+                <box-icon name='cart' color='#ffffff' ></box-icon>
+                </button>
           </Col>
         </Navbar.Collapse>
       </Container>
