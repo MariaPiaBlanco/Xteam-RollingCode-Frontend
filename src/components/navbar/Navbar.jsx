@@ -153,6 +153,18 @@ function NavbarCustom() {
                   Iniciar sesión
                 </Dropdown.Item>
               )}
+              {!isLogged && (
+                <Dropdown.Item
+                  as="button"
+                  className={`dropdown-item ${btn_sesion}`}
+                  onClick={() => {
+                    verifyLogin();
+                    navigate("/register", { replace: true });
+                  }}
+                >
+                  Registrarse
+                </Dropdown.Item>
+              )}
 
               {isLogged && (
                 <Dropdown.Item
