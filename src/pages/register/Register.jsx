@@ -12,7 +12,6 @@ const Register = () => {
 
   const handleForm = (event) => {
     event.preventDefault();
-    console.log(password1.length);
     if (
       fullName === undefined ||
       email === undefined ||
@@ -32,6 +31,7 @@ const Register = () => {
           fullname: fullName,
           email: email,
           password: password1,
+          admin: false,
           profile: "user"
         })
         .then(() => {
