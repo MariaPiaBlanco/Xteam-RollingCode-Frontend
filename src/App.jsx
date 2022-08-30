@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/highlightpage/:id" element={<HighLightPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={!token.invalidToken ? <Register /> : <HomePage />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/error" element={<ErrorPage />} />
           <Route path="/admin" element={(token.decode?.admin) ? <AdminPage /> : <ErrorPage />} />
           <Route path="/admin/updateCategorie/:id" element={(token.decode?.admin) ?<UpdateCategorie /> : <ErrorPage />} />
