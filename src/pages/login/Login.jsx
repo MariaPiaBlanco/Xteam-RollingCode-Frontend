@@ -38,7 +38,7 @@ const Login = () => {
     if(!token.invalidToken){
       navigate('/')
     }
-  })
+  },[])
 
   return (
     <LoginForm

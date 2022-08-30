@@ -31,7 +31,7 @@ const UpdateGame = () => {
 
   useEffect(() => {
     getGameData();
-  });
+  },[]);
 
   const updateGame = (e) => {
     e.preventDefault();

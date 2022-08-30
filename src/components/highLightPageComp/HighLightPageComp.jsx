@@ -26,7 +26,7 @@ const imageDefault = 'https://i.gifer.com/Up8y.gif'
     
     useEffect(() => {
       getData();
-    })
+    },[])
 
   const saveComment = ()=>{
     // const token = localStorage.getItem('token')
