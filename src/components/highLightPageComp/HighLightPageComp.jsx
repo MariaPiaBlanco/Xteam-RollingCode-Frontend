@@ -26,6 +26,7 @@ const imageDefault = 'https://i.gifer.com/Up8y.gif'
     
     useEffect(() => {
       getData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
   const saveComment = ()=>{

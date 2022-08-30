@@ -31,6 +31,7 @@ const UpdateGame = () => {
 
   useEffect(() => {
     getGameData();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
   const updateGame = (e) => {
@@ -79,6 +80,7 @@ const UpdateGame = () => {
 
   useEffect(() => {
     getAllCategories();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
